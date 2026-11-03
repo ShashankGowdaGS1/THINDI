@@ -8,11 +8,7 @@ import {
   ShoppingBag,
   Check,
   Eye,
-  Package,
-  Truck,
-  Sparkles,
   ArrowRight,
-  ShieldCheck,
   ChevronDown,
 } from 'lucide-react';
 import { THINDI_BUNDLES } from '@/data/bundles';
@@ -56,61 +52,73 @@ export const CombosPageView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-16 pb-24">
+    <div className="space-y-16 sm:space-y-20 pb-24">
       {/* ========================================================
-          1. HERO INTRO
+          1. HERO INTRO — A BOX FULL OF KARNATAKA
           ======================================================== */}
-      <section className="relative bg-turmeric text-jaggery pt-12 pb-16 md:pt-20 md:pb-24 border-b border-jaggery/15 overflow-hidden">
+      <section className="relative bg-turmeric text-jaggery pt-10 pb-14 sm:pt-16 sm:pb-20 border-b border-jaggery/15 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/70 border border-jaggery/20 text-xs font-bold uppercase tracking-wider text-jaggery shadow-xs">
+            {/* Left Content Column (42-45% desktop width) */}
+            <div className="lg:col-span-5 space-y-5">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream/80 border border-jaggery/20 text-xs font-bold uppercase tracking-wider text-jaggery shadow-xs">
                 <Gift className="w-3.5 h-3.5 text-chilli" />
-                <span>CURATED HASSAN GIFT CARTONS · ಉಡುಗೊರೆ ಪೆಟ್ಟಿಗೆ</span>
+                <span>A BOX FULL OF KARNATAKA · ಉಡುಗೊರೆ ಪೆಟ್ಟಿಗೆ</span>
               </div>
 
+              {/* Headline */}
               <div className="space-y-2">
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-jaggery tracking-tight leading-[1.08]">
+                <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-[54px] text-jaggery tracking-tight leading-[1.06]">
                   A box full of
                   <span className="block text-chilli">good thindi.</span>
                 </h1>
-                <p className="font-kannada text-xl text-jaggery/90 font-medium">
+                <p className="font-kannada text-lg sm:text-xl text-jaggery/90 font-medium">
                   ಸಂಭ್ರಮದ ಕ್ಷಣಗಳಿಗೆ ತಿಂಡಿಯ ಉಡುಗೊರೆ
                 </p>
               </div>
 
-              <p className="font-sans text-base sm:text-lg text-jaggery/90 max-w-xl leading-relaxed">
-                Discover curated snack assortments for sharing, gifting and every little celebration.
-                Traditional chakkali, crisp kodubale, spicy nippattu, and sun-dried treats hand-packed in Hassan.
+              {/* Shortened Supporting Copy */}
+              <p className="font-sans text-base sm:text-lg text-jaggery/85 max-w-xl leading-relaxed">
+                Traditional Karnataka favourites, beautifully brought together for sharing, gifting and every little celebration.
               </p>
 
-              <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-jaggery">
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-cream/60 border border-jaggery/15">
-                  <Check className="w-3.5 h-3.5 text-leaf" />
-                  <span>Sealed for crispness</span>
+              {/* Mobile-Only Celebration Box Photograph (Between description and CTA) */}
+              <div className="block lg:hidden my-6">
+                <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border-2 border-jaggery/20 shadow-lg bg-[#FAF5EC]">
+                  <Image
+                    src="/images/thindi-boxes/celebration-box.png"
+                    alt="THINDI Celebration Box gift packaging with five traditional Karnataka snack varieties"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-contain"
+                  />
                 </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-cream/60 border border-jaggery/15">
-                  <Truck className="w-3.5 h-3.5 text-leaf" />
-                  <span>Doorstep courier delivery</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-cream/60 border border-jaggery/15">
-                  <ShieldCheck className="w-3.5 h-3.5 text-leaf" />
-                  <span>Traditional recipes</span>
-                </div>
+              </div>
+
+              {/* Primary CTA Button */}
+              <div className="pt-1">
+                <a
+                  href="#boxes-assortments"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-jaggery text-cream font-sans font-bold text-sm hover:bg-leaf transition-colors min-h-[48px] shadow-sm cursor-pointer"
+                >
+                  <span>Explore THINDI Boxes</span>
+                  <ArrowRight className="w-4 h-4 text-turmeric" />
+                </a>
               </div>
             </div>
 
-            {/* Right Visual Image */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-4/3 sm:aspect-16/10 rounded-2xl overflow-hidden border-2 border-jaggery/20 shadow-lg bg-cream">
+            {/* Right Desktop Visual Column (55-58% desktop width) */}
+            <div className="hidden lg:block lg:col-span-7">
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border-2 border-jaggery/20 shadow-xl bg-[#FAF5EC]">
                 <Image
-                  src="/images/box/thindi-box.jpg"
-                  alt="Open THINDI Box gift carton with authentic Karnataka savouries"
+                  src="/images/thindi-boxes/celebration-box.png"
+                  alt="THINDI Celebration Box gift packaging with five traditional Karnataka snack varieties"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
+                  sizes="(max-width: 1280px) 55vw, 680px"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -119,93 +127,90 @@ export const CombosPageView: React.FC = () => {
       </section>
 
       {/* ========================================================
-          2. CURATED BUNDLE OPTIONS (Packaging-Led Layout)
+          2. CURATED BUNDLE ASSORTMENTS (Photography-Led Merchandise)
           ======================================================== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="boxes-assortments" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="mb-10 text-center max-w-2xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-chilli font-sans">
             AVAILABLE ASSORTMENTS
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-jaggery mt-1">
+          <h2 className="font-display font-black text-3xl sm:text-4xl text-jaggery mt-1 tracking-tight">
             Choose Your THINDI Box
           </h2>
-          <p className="text-sm text-jaggery/70 mt-2 font-sans">
-            Each box is curated for distinct snacking moments — from afternoon tea to festive family gatherings.
+          <p className="text-sm sm:text-base text-jaggery/75 mt-2 font-sans">
+            Three thoughtfully arranged assortments for different occasions.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {THINDI_BUNDLES.map((bundle) => {
             const isAdded = !!addedMap[bundle.id];
 
             return (
               <div
                 key={bundle.id}
-                className="bg-[#FFFCF7] rounded-2xl border border-jaggery/15 shadow-sm hover:border-chilli/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="bg-[#FFFDF9] rounded-2xl border border-jaggery/15 shadow-sm hover:border-chilli/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 <div>
-                  {/* Top Image & Badge */}
-                  <div className="relative aspect-4/3 overflow-hidden bg-cream-dark">
+                  {/* Top Large Photography (55-60% Visual Emphasis) */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF5EC] border-b border-jaggery/10 group">
                     <Image
                       src={bundle.imageSrc}
                       alt={bundle.imageAlt || bundle.name}
                       fill
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-2 group-hover:scale-102 transition-transform duration-300"
                     />
-                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-cream/90 backdrop-blur-xs text-[11px] font-mono font-bold text-jaggery border border-jaggery/15">
+                    {/* Weight & Variety Badges */}
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-cream/95 backdrop-blur-xs text-[11px] font-mono font-bold text-jaggery border border-jaggery/15 shadow-xs">
                       {bundle.totalWeight}
+                    </div>
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-turmeric/90 backdrop-blur-xs text-[11px] font-sans font-bold text-jaggery border border-jaggery/15 shadow-xs">
+                      {bundle.itemCount} Varieties
                     </div>
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-6 space-y-4">
+                  <div className="p-6 space-y-3.5">
                     <div>
-                      <div className="flex items-baseline justify-between gap-2">
-                        <h3 className="font-serif text-2xl font-bold text-jaggery">
-                          {bundle.name}
-                        </h3>
-                      </div>
-                      <p className="font-kannada text-sm text-chilli font-medium mt-0.5">
+                      <h3 className="font-display font-black text-2xl text-jaggery tracking-tight">
+                        {bundle.name}
+                      </h3>
+                      <p className="font-kannada text-sm text-chilli font-semibold mt-0.5">
                         {bundle.kannadaName}
-                      </p>
-                      <p className="text-xs font-mono text-jaggery/50 mt-1">
-                        SKU: {bundle.sku} · {bundle.itemCount} Assorted Packs
                       </p>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-jaggery/75 font-sans leading-relaxed">
+                    <p className="text-xs sm:text-sm text-jaggery/75 font-sans leading-relaxed line-clamp-2">
                       {bundle.shortDescription}
                     </p>
 
-                    {/* Contents Itemized Preview */}
-                    <div className="p-3.5 rounded-xl bg-cream border border-jaggery/10 space-y-2">
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-jaggery/70">
-                        Box Contents:
-                      </p>
-                      <ul className="space-y-1 text-xs text-jaggery/85">
+                    {/* Snacks Summary */}
+                    <div className="pt-2">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-jaggery/60 block mb-1.5 font-sans">
+                        Assortment Includes:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
                         {bundle.contents.map((item, i) => (
-                          <li key={i} className="flex items-center justify-between">
-                            <span>
-                              {item.quantity}× {item.name}
-                            </span>
-                            <span className="font-mono text-jaggery/60 text-[11px]">
-                              {item.weight}
-                            </span>
-                          </li>
+                          <span
+                            key={i}
+                            className="inline-flex items-center text-[11px] font-medium text-jaggery/85 bg-cream px-2 py-0.5 rounded border border-jaggery/10"
+                          >
+                            {item.name}
+                          </span>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Footer Pricing & CTA */}
-                <div className="p-6 pt-3 border-t border-jaggery/10 flex items-center justify-between gap-3">
+                <div className="p-5 bg-cream/40 border-t border-jaggery/10 flex items-center justify-between gap-3">
                   <div>
-                    <span className="text-[10px] font-sans text-jaggery/60 uppercase block">
+                    <span className="text-[10px] font-sans text-jaggery/60 uppercase font-semibold block">
                       Price per Box
                     </span>
-                    <span className="font-serif text-2xl font-bold text-chilli">
+                    <span className="font-display font-black text-2xl text-chilli">
                       ₹{bundle.price}
                     </span>
                   </div>
@@ -214,25 +219,27 @@ export const CombosPageView: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setInspectingBundle(bundle)}
-                      className="p-2.5 rounded-lg border border-jaggery/20 hover:bg-cream text-jaggery transition-colors cursor-pointer"
-                      title="Inspect box details"
+                      className="px-3 py-2.5 rounded-lg border border-jaggery/20 hover:bg-cream text-jaggery text-xs font-bold font-sans flex items-center gap-1.5 transition-colors cursor-pointer min-h-[44px]"
+                      aria-label={`View contents of ${bundle.name}`}
                     >
-                      <Eye className="w-4 h-4" />
+                      <Eye className="w-4 h-4 text-jaggery/70" />
+                      <span>View Contents</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => handleAddToCart(bundle)}
-                      className={`px-4 py-2.5 rounded-lg font-sans font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer ${
+                      className={`px-4 py-2.5 rounded-lg font-sans font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer min-h-[44px] shadow-xs ${
                         isAdded
                           ? 'bg-leaf text-cream'
-                          : 'bg-chilli text-cream hover:bg-[#8B3326] shadow-xs'
+                          : 'bg-chilli text-cream hover:bg-[#8B3326]'
                       }`}
+                      aria-label={`Add ${bundle.name} to cart`}
                     >
                       {isAdded ? (
                         <>
                           <Check className="w-3.5 h-3.5" />
-                          <span>Added to Cart</span>
+                          <span>Added ✓</span>
                         </>
                       ) : (
                         <>
@@ -260,7 +267,7 @@ export const CombosPageView: React.FC = () => {
               <span>Bulk & Celebration Gifting</span>
             </div>
 
-            <h3 className="font-serif text-2xl sm:text-4xl font-bold text-cream">
+            <h3 className="font-display font-black text-2xl sm:text-4xl text-cream tracking-tight">
               Planning a wedding, festival dispatch, or corporate gesture?
             </h3>
 
@@ -294,7 +301,7 @@ export const CombosPageView: React.FC = () => {
           <span className="text-xs font-bold uppercase tracking-widest text-chilli font-sans">
             FREQUENT QUESTIONS
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-jaggery mt-1">
+          <h2 className="font-display font-black text-2xl sm:text-3xl text-jaggery mt-1 tracking-tight">
             Gifting & Delivery FAQs
           </h2>
         </div>
@@ -307,7 +314,8 @@ export const CombosPageView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left gap-4 font-serif text-base sm:text-lg font-bold text-jaggery hover:text-chilli transition-colors cursor-pointer"
+                  className="w-full flex items-center justify-between text-left gap-4 font-display text-base sm:text-lg font-bold text-jaggery hover:text-chilli transition-colors cursor-pointer"
+                  aria-expanded={isOpen}
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
@@ -342,8 +350,8 @@ export const CombosPageView: React.FC = () => {
           onClose={() => setInspectingBundle(null)}
           onAddToCart={() => {
             handleAddToCart(inspectingBundle);
-            setInspectingBundle(null);
           }}
+          isAdded={!!addedMap[inspectingBundle.id]}
         />
       )}
 
@@ -356,4 +364,3 @@ export const CombosPageView: React.FC = () => {
     </div>
   );
 };
-

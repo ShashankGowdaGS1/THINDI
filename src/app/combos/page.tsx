@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'A Box Full of Good Thindi | THINDI Gift Bundles',
     description:
       'Curated snack assortments packed in signature Kraft gift cartons from Hassan, Karnataka.',
-    images: ['/images/box/thindi-box.jpg'],
+    images: ['/images/thindi-boxes/celebration-box.png'],
   },
 };
 
