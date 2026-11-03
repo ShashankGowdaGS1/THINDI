@@ -144,10 +144,10 @@ export const DoorstepDeliverySection: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-[9px] uppercase tracking-wider font-sans font-bold text-jaggery-muted">
-                    Fresh Batch Promise
+                    Careful Packing
                   </div>
                   <div className="text-xs font-sans font-bold text-jaggery">
-                    Packed Fresh in Hassan Kitchens
+                    Prepared for Doorstep Transit
                   </div>
                 </div>
               </div>

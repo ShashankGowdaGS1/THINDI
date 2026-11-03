@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { ArrowUpRight, ArrowRight, Sparkles } from 'lucide-react';
 import { CRAVING_CATEGORIES, CravingCategory } from '@/data/categories';
 import { CategoryPreviewModal } from './CategoryPreviewModal';
-import { ChakkaliMotif } from '../brand/ChakkaliMotif';
 
 export const ShopByCravingSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<CravingCategory | null>(null);
@@ -94,22 +93,16 @@ export const ShopByCravingSection: React.FC = () => {
                     className="object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                   {/* Controlled editorial scrim for 100% readable typography */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/95 via-jaggery/40 to-transparent" />
-                  <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-jaggery/35 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
+                  <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-jaggery/25 to-transparent" />
                 </div>
 
                 {/* Top Bar inside card */}
-                <div className="relative z-10 p-6 xl:p-8 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-mono text-sm font-bold text-cream bg-jaggery/80 backdrop-blur-sm px-2.5 py-1 rounded-sm border border-cream/20">
-                      {kuruk.number}
-                    </span>
-                    <span className="text-xs uppercase font-sans tracking-[0.2em] font-semibold text-cream/90 bg-jaggery/60 backdrop-blur-sm px-3 py-1 rounded-sm border border-cream/15">
-                      {kuruk.badge}
-                    </span>
-                  </div>
-
-                  <span className="font-kannada text-sm font-semibold text-turmeric bg-jaggery/70 backdrop-blur-sm px-3 py-1 rounded-sm border border-cream/15">
+                <div className="relative z-10 p-5 xl:p-6 flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-cream bg-jaggery/80 backdrop-blur-sm px-2.5 py-1 rounded-sm border border-cream/20">
+                    {kuruk.number}
+                  </span>
+                  <span className="font-kannada text-xs font-semibold text-turmeric bg-jaggery/70 backdrop-blur-sm px-2.5 py-1 rounded-sm border border-cream/15">
                     {kuruk.kannadaBadge}
                   </span>
                 </div>
@@ -169,7 +162,7 @@ export const ShopByCravingSection: React.FC = () => {
                     sizes="(max-width: 1280px) 42vw, 500px"
                     className="object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/90 via-jaggery/35 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
                 </div>
 
                 {/* Top Bar */}
@@ -227,7 +220,7 @@ export const ShopByCravingSection: React.FC = () => {
                       sizes="(max-width: 1280px) 21vw, 250px"
                       className="object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-jaggery/95 via-jaggery/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
                   </div>
 
                   <div className="relative z-10 p-4 flex items-center justify-between">
@@ -268,7 +261,7 @@ export const ShopByCravingSection: React.FC = () => {
                       sizes="(max-width: 1280px) 21vw, 250px"
                       className="object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-jaggery/95 via-jaggery/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
                   </div>
 
                   <div className="relative z-10 p-4 flex items-center justify-between">
@@ -321,7 +314,7 @@ export const ShopByCravingSection: React.FC = () => {
                   sizes="100vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-jaggery/95 via-jaggery/45 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
               </div>
 
               <div className="relative z-10 p-4 sm:p-6 flex items-center justify-between">
@@ -374,7 +367,7 @@ export const ShopByCravingSection: React.FC = () => {
                   sizes="100vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-jaggery/90 via-jaggery/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
               </div>
 
               <div className="relative z-10 p-4 flex items-center justify-between">
@@ -427,7 +420,7 @@ export const ShopByCravingSection: React.FC = () => {
                     sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/90 via-jaggery/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
                 </div>
 
                 <div className="relative z-10 p-3.5 flex items-center justify-between">
@@ -468,7 +461,7 @@ export const ShopByCravingSection: React.FC = () => {
                     sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/90 via-jaggery/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/85 via-jaggery/25 to-transparent" />
                 </div>
 
                 <div className="relative z-10 p-3.5 flex items-center justify-between">
@@ -494,26 +487,6 @@ export const ShopByCravingSection: React.FC = () => {
                 </div>
               </button>
             </div>
-          </div>
-
-          {/* ========================================================
-              TRANSITION TO NEXT SECTION
-              Minimal transition toward future bestsellers section:
-              "Made for cravings worth sharing."
-              ======================================================== */}
-          <div className="pt-8 sm:pt-12 text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="w-12 h-[1px] bg-jaggery/20" />
-              <ChakkaliMotif size={20} color="#5C4E43" accentColor="#A43D2E" />
-              <span className="w-12 h-[1px] bg-jaggery/20" />
-            </div>
-
-            <p className="font-display font-bold text-xl sm:text-2xl text-jaggery tracking-tight mb-1">
-              Made for cravings worth sharing.
-            </p>
-            <p className="font-kannada text-sm font-semibold text-chilli tracking-wide">
-              ಹಂಚಿ ತಿನ್ನೋ ಸಂಭ್ರಮ · ನಮ್ಮ ಹಾಸನದ ತಿಂಡಿಗಳು
-            </p>
           </div>
         </div>
       </section>

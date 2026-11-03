@@ -30,7 +30,7 @@ export async function generateMetadata({
 
   return {
     title: `${category.title} (${category.kannadaTitle}) | THINDI Karnataka`,
-    description: `Shop authentic ${category.title.toLowerCase()} from Hassan, Karnataka. ${category.description} Handcrafted traditional snacks made with cold-pressed oils.`,
+    description: `Shop authentic ${category.title.toLowerCase()} from Hassan, Karnataka. ${category.description} Handcrafted traditional snacks prepared with time-honoured Karnataka recipes.`,
     openGraph: {
       title: `${category.title} | THINDI Traditional Food`,
       description: category.description,

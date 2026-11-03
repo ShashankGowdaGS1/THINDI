@@ -70,27 +70,16 @@ export const CartPageView: React.FC = () => {
           </Link>
         </div>
 
-        {/* Free Shipping Progress Indicator */}
+        {/* Delivery Transparency Notice */}
         <div className="mb-8 p-4 rounded-xl bg-warm-white border border-jaggery/15 flex items-center gap-3 text-xs sm:text-sm">
           <Truck className="w-5 h-5 text-leaf shrink-0" />
           <div className="flex-1">
-            {isFreeShipping ? (
-              <span className="font-semibold text-leaf">
-                🎉 Congratulations! Your order qualifies for Free Standard Delivery in Karnataka.
-              </span>
-            ) : (
-              <span>
-                Add <strong>₹{amountToFreeShipping}</strong> more of your favourite snacks to unlock <strong>Free Delivery</strong> across Karnataka!
-              </span>
-            )}
-            <div className="w-full bg-jaggery/10 rounded-full h-1.5 mt-2 overflow-hidden">
-              <div
-                className="bg-leaf h-full rounded-full transition-all duration-300"
-                style={{
-                  width: `${Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100)}%`,
-                }}
-              />
-            </div>
+            <span className="font-semibold text-jaggery">
+              Doorstep Delivery:
+            </span>{' '}
+            <span className="text-jaggery/80">
+              Shipping calculated after delivery details are confirmed.
+            </span>
           </div>
         </div>
 
@@ -200,14 +189,10 @@ export const CartPageView: React.FC = () => {
                   <span className="font-mono font-medium">₹{subtotal}</span>
                 </div>
 
-                <div className="flex items-center justify-between text-jaggery/80">
-                  <span>Estimated Delivery</span>
-                  <span className="font-mono font-medium">
-                    {isFreeShipping ? (
-                      <span className="text-leaf font-semibold">FREE</span>
-                    ) : (
-                      `₹${estimatedShipping}`
-                    )}
+                <div className="flex items-start justify-between text-jaggery/80 gap-2">
+                  <span>Delivery</span>
+                  <span className="text-xs text-jaggery-muted italic text-right">
+                    Calculated after delivery details are confirmed
                   </span>
                 </div>
 
@@ -220,14 +205,14 @@ export const CartPageView: React.FC = () => {
               <div className="pt-3 border-t border-jaggery/10 flex items-baseline justify-between">
                 <div>
                   <span className="font-serif text-lg font-bold text-jaggery block">
-                    Estimated Total
+                    Subtotal
                   </span>
                   <span className="text-[11px] text-jaggery/50 font-sans">
-                    Final charge verified at checkout
+                    Shipping verified at checkout
                   </span>
                 </div>
                 <span className="font-serif text-2xl font-bold text-jaggery">
-                  ₹{estimatedTotal}
+                  ₹{subtotal}
                 </span>
               </div>
 

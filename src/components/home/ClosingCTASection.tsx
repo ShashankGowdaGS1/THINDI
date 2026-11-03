@@ -52,7 +52,7 @@ export const ClosingCTASection: React.FC = () => {
 
             {/* Supporting Copy */}
             <p className="font-sans text-base sm:text-lg text-cream/80 leading-relaxed max-w-lg mb-8">
-              Your next snack-time favourite might be just a click away. Handcrafted with traditional Hassan patience, pure cold-pressed oils, and zero compromises.
+              Your next snack-time favourite might be just a click away. Handcrafted with traditional Hassan patience, time-honoured recipes, and authentic flavours.
             </p>
 
             {/* Primary CTA & Hassan Heritage Cue */}

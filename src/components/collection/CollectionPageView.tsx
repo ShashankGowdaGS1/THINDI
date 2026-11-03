@@ -112,8 +112,7 @@ export const CollectionPageView: React.FC<CollectionPageViewProps> = ({
               </div>
 
               <p className="font-sans text-sm sm:text-base text-jaggery/80 max-w-xl leading-relaxed">
-                {category.description} Handcrafted with cold-pressed oils, stone-ground flours, and traditional
-                recipes from Hassan kitchens.
+                {category.description} Handcrafted with stone-ground flours and time-honoured recipes from Hassan, Karnataka.
               </p>
 
               {/* Items featured tags */}

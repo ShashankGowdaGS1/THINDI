@@ -9,7 +9,6 @@ import { useCart } from '@/context/CartContext';
 import { PackSelector } from './PackSelector';
 import { ProductDetailModal } from './ProductDetailModal';
 import { Button } from '../brand/Button';
-import { ChakkaliMotif } from '../brand/ChakkaliMotif';
 
 export const SignaturePicksSection: React.FC = () => {
   const { addItem, openCart } = useCart();
@@ -151,7 +150,7 @@ export const SignaturePicksSection: React.FC = () => {
                   <div className="pt-4 border-t border-jaggery/10 flex items-center justify-between gap-4">
                     <div>
                       <span className="text-[10px] uppercase font-sans tracking-widest font-semibold text-jaggery-muted block">
-                        Price (Launch demo)
+                        Price
                       </span>
                       <div className="font-display font-black text-2xl text-jaggery">
                         ₹{selectedVariants[chakkali.id]?.price || chakkali.variants[0].price}
@@ -445,25 +444,6 @@ export const SignaturePicksSection: React.FC = () => {
                 </div>
               );
             })}
-          </div>
-
-          {/* ========================================================
-              BOTTOM TRANSITION TO NEXT SECTION
-              "Good thindi. Great stories."
-              ======================================================== */}
-          <div className="pt-8 text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="w-12 h-[1px] bg-jaggery/20" />
-              <ChakkaliMotif size={20} color="#5C4E43" accentColor="#A43D2E" />
-              <span className="w-12 h-[1px] bg-jaggery/20" />
-            </div>
-
-            <p className="font-display font-bold text-xl sm:text-2xl text-jaggery tracking-tight mb-1">
-              Good thindi. Great stories.
-            </p>
-            <p className="font-kannada text-sm font-semibold text-chilli tracking-wide">
-              ಉತ್ತಮ ತಿಂಡಿ · ಮಧುರ ನೆನಪುಗಳು
-            </p>
           </div>
         </div>
       </section>

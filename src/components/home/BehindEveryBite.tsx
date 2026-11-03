@@ -406,25 +406,6 @@ export const BehindEveryBite: React.FC = () => {
             </a>
           </div>
         </div>
-
-        {/* ========================================================
-            CONNECTION TO NEXT SECTION
-            Transition toward planned "Hassan to Your Doorstep" section
-            ======================================================== */}
-        <div className="pt-16 sm:pt-20 text-center border-t border-cream/10 mt-16 sm:mt-20">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="w-12 h-[1px] bg-cream/20" />
-            <ChakkaliMotif size={20} color="#FAF6ED" accentColor="#E8B54B" />
-            <span className="w-12 h-[1px] bg-cream/20" />
-          </div>
-
-          <p className="font-display font-medium text-lg sm:text-xl text-cream/90 tracking-tight mb-1">
-            Coming next: Hassan to Your Doorstep
-          </p>
-          <p className="font-sans text-xs uppercase tracking-[0.2em] text-turmeric font-semibold">
-            Statewide distribution & fresh batch schedules preparing
-          </p>
-        </div>
       </div>
     </section>
   );

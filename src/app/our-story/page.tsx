@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
-import { ChakkaliMotif } from '@/components/brand/ChakkaliMotif';
-import { ArrowRight, MapPin, Sparkles, Heart, Coffee } from 'lucide-react';
+import { ArrowRight, MapPin, Heart } from 'lucide-react';
+import { Button } from '@/components/brand/Button';
 
 export const metadata: Metadata = {
   title: 'Our Story | Good Thindi, Great Memories | THINDI Hassan',
@@ -18,69 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-const TRADITIONAL_FOODS = [
-  {
-    name: 'Chakkali',
-    kannadaName: 'ಚಕ್ಕುಲಿ',
-    slug: 'chakkali',
-    imageSrc: '/images/products/chakkali.jpg',
-    collectionSlug: 'kuruk-thindi',
-    story:
-      'Pressed through a brass chakli-maker with a star aperture, coiled into gentle concentric spirals, and fried slowly until pale golden. Every ripple holds crisp texture, roasted cumin, and fragrant sesame seeds.',
-    moment: 'The timeless 4 PM coffee companion',
-  },
-  {
-    name: 'Kodubale',
-    kannadaName: 'ಕೋಡುಬಳೆ',
-    slug: 'kodubale',
-    imageSrc: '/images/products/kodubale.jpg',
-    collectionSlug: 'kuruk-thindi',
-    story:
-      'Hand-shaped into crescent rings with tender fresh coconut, roasted ajwain, and coarse red chilli. A brittle, hollow crunch that breaks cleanly with a burst of fragrant carom and pepper.',
-    moment: 'Evening rains and conversations',
-  },
-  {
-    name: 'Nippattu',
-    kannadaName: 'ನಿಪ್ಪಟ್ಟು',
-    slug: 'nippattu',
-    imageSrc: '/images/products/nippattu.jpg',
-    collectionSlug: 'kuruk-thindi',
-    story:
-      'Flat disc crackers studded with roasted whole groundnuts, fried gram, and curry leaves. Robust, earthy, and distinctly spiced with local byadgi chilli for warmth that lingers gently.',
-    moment: 'Travel snack & festive tiffin tins',
-  },
-  {
-    name: 'Obbattu',
-    kannadaName: 'ಒಬ್ಬಟ್ಟು / ಹೋಳಿಗೆ',
-    slug: 'sihi-thindi',
-    imageSrc: '/images/categories/sihi-thindi.jpg',
-    collectionSlug: 'sihi-thindi',
-    story:
-      'Paper-thin flatbreads rolled with sweet jaggery-coconut or chana dal stuffing, griddled with pure cow ghee on a seasoned cast-iron tava. The undisputed centerpiece of festive feasts.',
-    moment: 'Ugadi feasts and milestone moments',
-  },
-  {
-    name: 'Appala & Sandige',
-    kannadaName: 'ಅಪ್ಪಳ ಮತ್ತು ಸಂಡಿಗೆ',
-    slug: 'appala-sandige',
-    imageSrc: '/images/categories/appala-sandige.jpg',
-    collectionSlug: 'appala-sandige',
-    story:
-      'Prepared during the hot Karnataka summer months. Steamed rice flour and sago paste extruded onto white cotton sarees and dried under the bright Deccan sun, ready to puff instantly in hot oil.',
-    moment: 'Sunday afternoon bisi bele bath accompaniments',
-  },
-  {
-    name: 'Uppinakai',
-    kannadaName: 'ಉಪ್ಪಿನಕಾಯಿ',
-    slug: 'mango-uppinakai',
-    imageSrc: '/images/products/mango-uppinakai.jpg',
-    collectionSlug: 'uppinakai',
-    story:
-      'Tender Malnad raw mango chunks salted in ceramic bharanis (jars), steeped with cold-pressed gingelly oil, freshly roasted mustard powder, and fenugreek. Tangy, sharp, and intensely aromatic.',
-    moment: 'Curd rice comfort at dinner',
-  },
-];
-
 export default function OurStoryPage() {
   return (
     <div className="min-h-screen bg-cream text-jaggery antialiased flex flex-col selection:bg-chilli/15">
@@ -88,13 +25,13 @@ export default function OurStoryPage() {
 
       <main className="flex-1">
         {/* ========================================================
-            SECTION 1: CINEMATIC INTRO
+            1. CINEMATIC EDITORIAL INTRO
             ======================================================== */}
-        <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-jaggery/10">
+        <section className="relative pt-12 pb-16 md:pt-18 md:pb-20 overflow-hidden border-b border-jaggery/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mb-10">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-chilli/10 border border-chilli/20 text-xs font-semibold uppercase tracking-widest text-chilli mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-chilli/10 border border-chilli/20 text-xs font-semibold uppercase tracking-widest text-chilli mb-5">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>OUR ROOTS · HASSAN, KARNATAKA</span>
                 <span className="text-chilli/40 font-normal">|</span>
@@ -102,21 +39,20 @@ export default function OurStoryPage() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-jaggery tracking-tight leading-[1.1]">
+              <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-jaggery tracking-tight leading-[1.08]">
                 Good thindi.
                 <span className="block text-chilli">Great memories.</span>
               </h1>
 
               {/* Supporting Copy */}
-              <p className="mt-6 font-sans text-base sm:text-xl text-jaggery/80 leading-relaxed max-w-2xl">
-                Some flavours stay with us. The familiar crunch of chakkali, the spice of uppinakai,
-                and the little treats that bring everyone together around the dining table, the kitchen counter,
-                or a steaming steel tumbler of filter coffee.
+              <p className="mt-5 font-sans text-base sm:text-lg text-jaggery-muted leading-relaxed max-w-2xl text-pretty">
+                Some flavours stay with us. The familiar crunch of chakkali, the warmth of kodubale,
+                and the little treats that bring people together around a steel tumbler of hot filter coffee.
               </p>
             </div>
 
             {/* Editorial Hero Photograph */}
-            <div className="mt-12 sm:mt-16 relative rounded-2xl overflow-hidden border border-jaggery/15 shadow-sm aspect-16/10 sm:aspect-21/9 bg-cream-dark">
+            <div className="relative rounded-2xl overflow-hidden border border-jaggery/15 shadow-sm aspect-[16/9] md:aspect-[21/9] bg-cream-dark">
               <Image
                 src="/images/story/story-heritage.jpg"
                 alt="Traditional brass plates with authentic Karnataka handmade savouries and filter coffee"
@@ -125,9 +61,9 @@ export default function OurStoryPage() {
                 sizes="(max-width: 1280px) 100vw, 1280px"
                 className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-jaggery/70 via-transparent to-transparent flex items-end p-6 sm:p-10">
-                <p className="font-serif text-cream text-lg sm:text-2xl font-medium italic max-w-xl">
-                  "Every snack tells the story of an afternoon spent waiting by the stove for the first crisp batch."
+              <div className="absolute inset-0 bg-gradient-to-t from-jaggery/80 via-jaggery/20 to-transparent flex items-end p-6 sm:p-10">
+                <p className="font-display text-cream text-lg sm:text-2xl font-medium italic max-w-xl">
+                  &ldquo;Every snack holds the memory of an afternoon spent waiting by the kitchen stove for the first crisp batch.&rdquo;
                 </p>
               </div>
             </div>
@@ -135,157 +71,173 @@ export default function OurStoryPage() {
         </section>
 
         {/* ========================================================
-            SECTION 2: THE FOODS WE GREW UP WITH (Magazine Editorial)
+            2. FOODS OF KARNATAKA: VARIED EDITORIAL SPREAD
             ======================================================== */}
         <section className="py-16 md:py-24 bg-[#FAF5EC] border-b border-jaggery/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-turmeric font-sans">
-                  TRADITIONAL PANTRY CLASSICS · ತಿಂಡಿ ವೈವಿಧ್ಯ
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-jaggery mt-2">
-                  The Foods We Grew Up With
-                </h2>
-              </div>
-              <p className="text-sm font-sans text-jaggery/70 max-w-md">
-                Recipes preserved through generations, made with stone-ground flours, cold-pressed oils, and zero shortcuts.
+            <div className="max-w-2xl mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest text-turmeric-dark font-sans">
+                TRADITIONAL PANTRY CLASSICS · ತಿಂಡಿ ವೈವಿಧ್ಯ
+              </span>
+              <h2 className="font-display font-black text-3xl sm:text-4xl text-jaggery mt-2">
+                The Foods We Grew Up With
+              </h2>
+              <p className="text-sm font-sans text-jaggery-muted mt-2 leading-relaxed">
+                Karnataka snacking is an art of patience. From the concentric spirals of star-aperture chakkali
+                to the gentle sweetness of jaggery obbattu, each recipe carries regional identity and honest craft.
               </p>
             </div>
 
-            {/* Magazine Editorial Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {TRADITIONAL_FOODS.map((item, idx) => (
-                <article
-                  key={item.name}
-                  className="group bg-cream rounded-xl border border-jaggery/15 overflow-hidden shadow-xs hover:border-chilli/40 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div>
-                    {/* Image */}
-                    <div className="relative aspect-4/3 overflow-hidden bg-cream-dark">
-                      <Image
-                        src={item.imageSrc}
-                        alt={`${item.name} traditional Karnataka snack`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-103 transition-transform duration-500"
-                      />
-                      <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-cream/90 backdrop-blur-xs text-[11px] font-mono font-bold text-jaggery border border-jaggery/10">
-                        0{idx + 1}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-baseline justify-between">
-                        <h3 className="font-serif text-xl font-bold text-jaggery group-hover:text-chilli transition-colors">
-                          {item.name}
-                        </h3>
-                        <span className="font-kannada text-sm text-chilli/90 font-medium">
-                          {item.kannadaName}
-                        </span>
-                      </div>
-
-                      <p className="text-xs font-semibold text-leaf uppercase tracking-wider mt-1.5 flex items-center gap-1.5">
-                        <Coffee className="w-3.5 h-3.5" />
-                        <span>{item.moment}</span>
-                      </p>
-
-                      <p className="font-sans text-xs sm:text-sm text-jaggery/75 mt-3 leading-relaxed">
-                        {item.story}
-                      </p>
-                    </div>
+            {/* Varied Editorial Composition 1: Chakkali & Savouries */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+              <div className="lg:col-span-7 relative">
+                <div className="relative aspect-[16/10] rounded-xl overflow-hidden border border-jaggery/15 shadow-sm bg-cream-dark">
+                  <Image
+                    src="/images/products/chakkali.jpg"
+                    alt="Golden spiral chakkali arranged on traditional brass platter"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-3 left-3 bg-cream/90 backdrop-blur-sm px-3 py-1 rounded text-xs font-sans font-semibold text-jaggery border border-jaggery/10">
+                    Hand-Pressed Chakkali · ಹಾಸನ ಚಕ್ಕುಲಿ
                   </div>
+                </div>
+              </div>
 
-                  {/* Footer link */}
-                  <div className="px-6 pb-6 pt-2 border-t border-jaggery/5 flex items-center justify-between">
-                    <Link
-                      href={`/collections/${item.collectionSlug}`}
-                      className="text-xs font-semibold text-chilli hover:text-jaggery inline-flex items-center gap-1 transition-colors"
-                    >
-                      <span>Explore Collection</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                    </Link>
+              <div className="lg:col-span-5 space-y-4">
+                <span className="font-mono text-xs font-bold text-chilli uppercase tracking-wider">
+                  01 · The Savoury Crunch
+                </span>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-jaggery">
+                  Chakkali & Kodubale
+                </h3>
+                <p className="font-sans text-sm text-jaggery-muted leading-relaxed">
+                  Pressed through heirloom brass moulds and rolled into golden rings with fresh coconut and ajwain.
+                  A crisp, hollow snap that breaks cleanly with fragrant cumin and cracked black pepper.
+                </p>
+                <div className="pt-1">
+                  <Link
+                    href="/collections/kuruk-thindi"
+                    className="text-xs font-semibold text-chilli hover:underline inline-flex items-center gap-1.5"
+                  >
+                    <span>Browse Kuruk Thindi Savouries</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Varied Editorial Composition 2: Obbattu & Festive Sweets */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-5 order-2 lg:order-1 space-y-4">
+                <span className="font-mono text-xs font-bold text-chilli uppercase tracking-wider">
+                  02 · Festive Warmth
+                </span>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-jaggery">
+                  Obbattu & Kajjaya
+                </h3>
+                <p className="font-sans text-sm text-jaggery-muted leading-relaxed">
+                  Soft, paper-thin crêpes filled with cardamom-spiced jaggery and chana dal puran, lightly brushed with ghee.
+                  The revered sweet centerpiece of Ugadi celebrations and family gatherings across Karnataka.
+                </p>
+                <div className="pt-1">
+                  <Link
+                    href="/collections/sihi-thindi"
+                    className="text-xs font-semibold text-chilli hover:underline inline-flex items-center gap-1.5"
+                  >
+                    <span>Browse Festive Sweets</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 order-1 lg:order-2 relative">
+                <div className="relative aspect-[16/10] rounded-xl overflow-hidden border border-jaggery/15 shadow-sm bg-cream-dark">
+                  <Image
+                    src="/images/products/obbattu.jpg"
+                    alt="Golden Bele Obbattu served on fresh green banana leaf with pure ghee"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-3 left-3 bg-cream/90 backdrop-blur-sm px-3 py-1 rounded text-xs font-sans font-semibold text-jaggery border border-jaggery/10">
+                    Bele Obbattu · ಬೇಳೆ ಒಬ್ಬಟ್ಟು
                   </div>
-                </article>
-              ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            SECTION 3: ROOTED IN HASSAN
+            3. ROOTED IN HASSAN
             ======================================================== */}
         <section className="py-16 md:py-24 bg-cream border-b border-jaggery/10 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               {/* Left Column: Story */}
-              <div className="lg:col-span-7 space-y-6">
+              <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-chilli font-sans">
                   <MapPin className="w-4 h-4" />
-                  <span>REGIONAL GEOGRAPHY · ಹಾಸನದ ಹೆಮ್ಮೆ</span>
+                  <span>REGIONAL ORIGIN · ಹಾಸನದ ಹೆಮ್ಮೆ</span>
                 </div>
 
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-jaggery tracking-tight">
+                <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-jaggery tracking-tight">
                   A little piece of Hassan.
                 </h2>
 
-                <div className="font-sans text-base sm:text-lg text-jaggery/80 space-y-4 leading-relaxed">
+                <div className="font-sans text-base text-jaggery-muted space-y-4 leading-relaxed">
                   <p>
-                    Nestled between the misty coffee hills of the Western Ghats and the fertile plains of southern
-                    Karnataka, Hassan has always held a special culinary identity. It is a land shaped by rich red soil,
-                    artisan heritage, and a legendary culture of welcoming travellers with warm plates of fresh thindi.
+                    Nestled between the misty hills of the Western Ghats and the fertile plains of southern
+                    Karnataka, Hassan has always held a special culinary identity. It is a region shaped by
+                    artisan heritage and a culture of welcoming travellers with warm plates of fresh thindi.
                   </p>
                   <p>
-                    In households across the district, recipes are not measured with digital scales, but with time-honoured
-                    handfuls of stone-ground flours, fresh curry leaves picked straight from kitchen gardens, and the slow,
-                    gentle hum of frying pans seasoned over decades.
+                    In households across the district, snack-making is guided by time-tested proportions — handfuls
+                    of stone-ground flours, fresh curry leaves from backyard gardens, and the gentle crackle of seasoned
+                    frying pans.
                   </p>
                   <p className="text-sm font-medium text-jaggery border-l-2 border-chilli pl-4 italic">
-                    THINDI was founded to bring this very culinary heritage — honest, unhurried, and authentic — from our
-                    ooru straight to homes across Karnataka.
+                    THINDI was created to bring this culinary heritage — honest, unhurried, and authentic — from our
+                    ooru straight to your table.
                   </p>
                 </div>
 
-                <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono text-jaggery/70">
-                  <div className="px-3 py-2 rounded-lg bg-cream-dark border border-jaggery/10">
-                    <strong className="block text-jaggery">Origin Town</strong>
-                    <span>Hassan, Karnataka (573201)</span>
+                <div className="pt-2 flex flex-wrap gap-3 text-xs font-mono text-jaggery-muted">
+                  <div className="px-3.5 py-2 rounded-md bg-cream-dark border border-jaggery/10">
+                    <strong className="block text-jaggery font-sans">Origin</strong>
+                    <span>Hassan, Karnataka</span>
                   </div>
-                  <div className="px-3 py-2 rounded-lg bg-cream-dark border border-jaggery/10">
-                    <strong className="block text-jaggery">Cooking Tradition</strong>
-                    <span>Small batch, wood-pressed oils</span>
+                  <div className="px-3.5 py-2 rounded-md bg-cream-dark border border-jaggery/10">
+                    <strong className="block text-jaggery font-sans">Craft</strong>
+                    <span>Traditional recipes</span>
                   </div>
-                  <div className="px-3 py-2 rounded-lg bg-cream-dark border border-jaggery/10">
-                    <strong className="block text-jaggery">Packaging</strong>
-                    <span>Hermetically sealed for crispiness</span>
+                  <div className="px-3.5 py-2 rounded-md bg-cream-dark border border-jaggery/10">
+                    <strong className="block text-jaggery font-sans">Packaging</strong>
+                    <span>Airtight sealed pouches</span>
                   </div>
                 </div>
               </div>
 
               {/* Right Column: Artisan Visual Composition */}
               <div className="lg:col-span-5 relative">
-                <div className="relative rounded-2xl overflow-hidden border border-jaggery/15 shadow-md aspect-4/5 bg-cream-dark">
+                <div className="relative rounded-xl overflow-hidden border border-jaggery/15 shadow-md aspect-[4/5] bg-cream-dark">
                   <Image
                     src="/images/story/story-handcraft.jpg"
-                    alt="Artisan hands rolling and pressing traditional snacks in Hassan kitchen"
+                    alt="Artisan hands shaping traditional snacks with precision and care"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-jaggery/70 via-transparent to-transparent flex flex-col justify-end p-6 text-cream">
+                  <div className="absolute inset-0 bg-gradient-to-t from-jaggery/80 via-transparent to-transparent flex flex-col justify-end p-6 text-cream">
                     <span className="font-kannada text-base font-semibold text-turmeric">
                       ಪಾರಂಪರಿಕ ಕೈಚಳಕ
                     </span>
-                    <p className="font-serif text-sm italic mt-1 text-cream/90">
-                      Handcrafted with care, patience, and age-old culinary craft.
+                    <p className="font-sans text-xs italic mt-1 text-cream/80">
+                      Handcrafted with care, patience, and regional pride.
                     </p>
                   </div>
-                </div>
-
-                {/* Decorative Chakkali Motif floating */}
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 text-chilli/20 pointer-events-none hidden sm:block">
-                  <ChakkaliMotif className="w-full h-full animate-spin-slow" />
                 </div>
               </div>
             </div>
@@ -293,100 +245,105 @@ export default function OurStoryPage() {
         </section>
 
         {/* ========================================================
-            SECTION 4: MADE TO BE SHARED
+            4. SNACK TEXTURES & TRADITIONAL FORMS (Photo Strip)
             ======================================================== */}
         <section className="py-16 md:py-24 bg-jaggery text-cream relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center space-y-6">
+            <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
               <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-turmeric font-sans">
                 <Heart className="w-3.5 h-3.5 text-chilli" />
                 <span>SHARING TRADITIONS · ಹಂಚಿ ತಿನ್ನುವ ಸಂಭ್ರಮ</span>
               </span>
 
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cream leading-tight">
-                "The best thindi is the kind we share."
+              <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-cream">
+                &ldquo;The best thindi is the kind we share.&rdquo;
               </h2>
 
-              <p className="font-sans text-base sm:text-lg text-cream/80 max-w-xl mx-auto leading-relaxed">
-                Whether it's unboxing a surprise parcel sent to a hostel room, passing the dabba around during evening
-                card games, or stocking the festive pantry for family visits — traditional snacks were always meant to be
-                enjoyed together.
+              <p className="font-sans text-base text-cream/75 max-w-xl mx-auto leading-relaxed">
+                Whether it is unboxing a gift parcel, passing the tin around during evening conversations,
+                or stocking the festival pantry — traditional snacks were always meant to be enjoyed together.
               </p>
-
-              <div className="pt-4 flex items-center justify-center gap-3">
-                <div className="h-px w-12 bg-turmeric/40" />
-                <span className="font-kannada text-turmeric text-lg font-medium">
-                  ಒಟ್ಟಿಗೆ ಸವಿಯೋಣ
-                </span>
-                <div className="h-px w-12 bg-turmeric/40" />
-              </div>
             </div>
 
-            {/* Photo Trio Strip */}
-            <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
-              <div className="relative aspect-4/3 rounded-xl overflow-hidden border border-cream/15">
+            {/* Varied Texture Ratios Strip */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-cream/15 group">
                 <Image
-                  src="/images/behind/macro-chakkali.jpg"
-                  alt="Golden crisp spiral chakkali texture"
+                  src="/images/products/nippattu.jpg"
+                  alt="Crunchy spiced Nippattu with whole roasted peanuts"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute bottom-2.5 left-2.5 bg-jaggery/85 backdrop-blur-sm px-2.5 py-1 rounded text-xs text-cream">
+                  Nippattu · ನಿಪ್ಪಟ್ಟು
+                </div>
               </div>
-              <div className="relative aspect-4/3 rounded-xl overflow-hidden border border-cream/15">
+
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-cream/15 group">
                 <Image
-                  src="/images/story/story-texture.jpg"
-                  alt="Traditional spices and stone-ground flours"
+                  src="/images/products/kajjaya.jpg"
+                  alt="Deep golden mahogany Kajjaya sweets studded with sesame"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute bottom-2.5 left-2.5 bg-jaggery/85 backdrop-blur-sm px-2.5 py-1 rounded text-xs text-cream">
+                  Kajjaya · ಕಜ್ಜಾಯ
+                </div>
               </div>
-              <div className="relative aspect-4/3 rounded-xl overflow-hidden border border-cream/15">
+
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-cream/15 group">
                 <Image
-                  src="/images/behind/macro-kodubale.jpg"
-                  alt="Crunchy golden kodubale rings"
+                  src="/images/products/sandige.jpg"
+                  alt="Sun-dried crisp Akki Sandige"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute bottom-2.5 left-2.5 bg-jaggery/85 backdrop-blur-sm px-2.5 py-1 rounded text-xs text-cream">
+                  Akki Sandige · ಸಂಡಿಗೆ
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            SECTION 5: SHOPPING CTA
+            5. SHOPPING CTA
             ======================================================== */}
-        <section className="py-16 md:py-24 bg-cream border-t border-jaggery/10 text-center">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <section className="py-16 md:py-20 bg-cream border-t border-jaggery/10 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
             <span className="text-xs font-bold uppercase tracking-widest text-chilli font-sans">
               TASTE THE HERITAGE
             </span>
 
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-jaggery tracking-tight">
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-jaggery tracking-tight">
               Craving something familiar?
             </h2>
 
-            <p className="font-sans text-base sm:text-lg text-jaggery/75 max-w-xl mx-auto leading-relaxed">
-              From crisp savouries to seasonal sun-dried delicacies, discover the flavours of Hassan delivered across
-              Karnataka.
+            <p className="font-sans text-base text-jaggery-muted max-w-lg mx-auto leading-relaxed">
+              From crisp savouries to seasonal sweets and pickles, explore authentic Karnataka flavours crafted in Hassan.
             </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+              <Button
+                variant="primary"
+                size="md"
                 href="/shop"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-chilli text-cream font-sans font-bold text-sm hover:bg-[#8B3326] transition-colors shadow-sm flex items-center justify-center gap-2 group cursor-pointer"
+                icon={<ArrowRight className="w-4 h-4" />}
+                className="w-full sm:w-auto"
               >
-                <span>Explore THINDI</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
+                Explore All Thindi
+              </Button>
+              <Button
+                variant="outline"
+                size="md"
                 href="/combos"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-jaggery/20 bg-cream-dark text-jaggery font-sans font-semibold text-sm hover:bg-[#EFE5D5] transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto"
               >
-                <span>Browse Gift Boxes</span>
-              </Link>
+                Browse Gift Boxes
+              </Button>
             </div>
           </div>
         </section>
@@ -396,4 +353,3 @@ export default function OurStoryPage() {
     </div>
   );
 }
-

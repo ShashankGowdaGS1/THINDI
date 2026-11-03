@@ -9,7 +9,7 @@ export const THINDI_BUNDLES: ThindiBundle[] = [
     shortDescription:
       'The essential 4 PM Karnataka snack trio. Spiral chakkali, ring kodubale, and crisp masala nippattu.',
     fullDescription:
-      'Curated for cozy evening tea moments. Three quintessential Hassan homemade snacks packed in sealed pouches to preserve crispiness. Made with cold-pressed oil and roasted stone-ground spices.',
+      'Curated for cozy evening tea moments. Three quintessential Hassan homemade snacks packed in sealed pouches to preserve crispiness. Prepared with roasted stone-ground spices and time-honoured culinary methods.',
     price: 420,
     available: true,
     itemCount: 3,
@@ -41,9 +41,9 @@ export const THINDI_BUNDLES: ThindiBundle[] = [
     ],
     highlights: [
       '3 Signature Snack Packs (600g total)',
-      '100% Traditional Hassan small-batch recipes',
-      'Zero palm oil · Cold-pressed oils only',
-      'Sealed for statewide freshness',
+      'Curated trio of regional Karnataka savouries',
+      'Airtight pouches to preserve crispness',
+      'Prepared with traditional Hassan recipes',
     ],
     allergens: 'Contains Sesame, Peanuts. Naturally vegetarian.',
   },
@@ -142,7 +142,7 @@ export const THINDI_BUNDLES: ThindiBundle[] = [
         kannadaName: 'ಮಾವಿನಕಾಯಿ ಉಪ್ಪಿನಕಾಯಿ',
         weight: '250g Jar',
         quantity: 1,
-        description: 'Aged in ceramic bharani with cold-pressed sesame oil.',
+        description: 'Aged in ceramic bharani with traditional sesame oil.',
       },
       {
         name: 'Traditional Festive Kajjaya',

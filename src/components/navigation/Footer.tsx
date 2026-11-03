@@ -2,36 +2,18 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { MapPin, ArrowUpRight, ShieldCheck, Heart } from 'lucide-react';
+import { MapPin, ArrowUpRight } from 'lucide-react';
 import { ThindiWordmark } from '../brand/ThindiWordmark';
-import { ChakkaliMotif } from '../brand/ChakkaliMotif';
 import { siteConfig, NavItem } from '@/data/siteConfig';
-import { UpcomingNoticeModal } from '../brand/UpcomingNoticeModal';
 import { ContactInquiryModal } from '../home/ContactInquiryModal';
 
 export const Footer: React.FC = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [noticeModal, setNoticeModal] = useState<{
-    isOpen: boolean;
-    title: string;
-    description: string;
-  }>({
-    isOpen: false,
-    title: '',
-    description: '',
-  });
 
   const handleNavClick = (item: NavItem, e: React.MouseEvent) => {
     if (item.action === 'contact') {
       e.preventDefault();
       setIsContactOpen(true);
-    } else if (item.action === 'notice') {
-      e.preventDefault();
-      setNoticeModal({
-        isOpen: true,
-        title: item.noticeTitle || item.label,
-        description: item.noticeDescription || '',
-      });
     }
   };
 
@@ -57,7 +39,7 @@ export const Footer: React.FC = () => {
               <ThindiWordmark size="lg" theme="dark" asLink={false} />
 
               <p className="font-sans text-cream/75 text-sm sm:text-base leading-relaxed max-w-sm mt-5">
-                {siteConfig.brand.tagline} Handcrafted traditional snacks made with cold-pressed oils, age-old recipes, and honest Karnataka heritage.
+                {siteConfig.brand.tagline} Traditional savouries and confections prepared with authentic Karnataka recipes and honest heritage.
               </p>
 
               {/* Verified Location */}
@@ -154,18 +136,18 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ========================================================
-            PHASE 4: DISTINCTIVE OVERSIZED THINDI WORDMARK
-            Architectural, high-fashion brand identity conclusion
+            DISTINCTIVE OVERSIZED THINDI WORDMARK
+            Typographic brand watermark with balanced intentional contrast
             ======================================================== */}
         <div
           className="border-t border-cream/10 pt-8 sm:pt-12 pb-4 text-center select-none overflow-hidden"
           aria-hidden="true"
         >
-          <div className="flex items-baseline justify-center">
-            <span className="font-display font-black tracking-[-0.04em] text-[16vw] sm:text-[14vw] lg:text-[160px] xl:text-[180px] leading-none text-cream/[0.06] hover:text-cream/[0.09] transition-colors duration-700 uppercase">
+          <div className="flex items-baseline justify-center max-w-full overflow-hidden">
+            <span className="font-display font-black tracking-[-0.03em] text-[15vw] sm:text-[13vw] lg:text-[150px] xl:text-[170px] leading-none text-cream/15 hover:text-cream/25 transition-colors duration-500 uppercase">
               THINDI
             </span>
-            <span className="font-kannada font-bold text-[6vw] sm:text-[5vw] lg:text-[60px] leading-none text-turmeric/[0.08] ml-2 sm:ml-4">
+            <span className="font-kannada font-bold text-[6vw] sm:text-[5vw] lg:text-[56px] leading-none text-turmeric/20 ml-2 sm:ml-4">
               ತಿಂಡಿ
             </span>
           </div>
@@ -191,14 +173,6 @@ export const Footer: React.FC = () => {
       <ContactInquiryModal
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
-      />
-
-      {/* Informational Policy Modal */}
-      <UpcomingNoticeModal
-        isOpen={noticeModal.isOpen}
-        onClose={() => setNoticeModal({ ...noticeModal, isOpen: false })}
-        featureTitle={noticeModal.title}
-        featureDescription={noticeModal.description}
       />
     </footer>
   );

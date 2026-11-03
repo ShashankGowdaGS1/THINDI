@@ -112,28 +112,28 @@ export const TrackOrderView: React.FC = () => {
   };
 
   return (
-    <div className="py-12 sm:py-20">
+    <div className="pt-6 pb-12 sm:pt-8 sm:pb-16">
       <div className="max-w-xl mx-auto px-4 sm:px-6">
         {/* Compact Editorial Introduction */}
-        <div className="text-center space-y-3 mb-8">
-          <div className="w-16 h-16 rounded-full bg-warm-white border border-jaggery/15 flex items-center justify-center mx-auto text-jaggery shadow-sm mb-3">
-            <ChakkaliMotif size={36} color="#2D241E" />
+        <div className="text-center space-y-2 mb-6">
+          <div className="w-14 h-14 rounded-full bg-warm-white border border-jaggery/15 flex items-center justify-center mx-auto text-jaggery shadow-sm mb-2">
+            <ChakkaliMotif size={32} color="#2D241E" />
           </div>
 
-          <span className="text-xs font-semibold uppercase tracking-widest text-chilli font-sans block">
+          <span className="text-[11px] font-semibold uppercase tracking-widest text-chilli font-sans block">
             YOUR THINDI JOURNEY
           </span>
 
-          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-jaggery">
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-jaggery">
             Where&apos;s my Thindi?
           </h1>
 
-          <p className="font-kannada text-lg text-jaggery/60 font-medium">
+          <p className="font-kannada text-base text-jaggery/60 font-semibold">
             ನನ್ನ ತಿಂಡಿ ಎಲ್ಲಿದೆ?
           </p>
 
-          <p className="font-sans text-sm sm:text-base text-jaggery/75 max-w-md mx-auto leading-relaxed">
-            Find out where your order is and what&apos;s happening next.
+          <p className="font-sans text-xs sm:text-sm text-jaggery-muted max-w-md mx-auto leading-relaxed">
+            Enter your order reference and email to securely view your shipment status.
           </p>
         </div>
 

@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = {
     kannadaName: 'ತಿಂಡಿ',
     tagline: 'Traditional Karnataka flavours. A little closer to home.',
     location: 'Hassan, Karnataka',
-    sublocationNote: 'Central kitchens & distribution hub based in Hassan.',
+    sublocationNote: 'Artisan savouries and traditional confections rooted in Hassan, Karnataka.',
   },
   navigation: {
     explore: [

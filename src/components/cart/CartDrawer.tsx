@@ -177,10 +177,7 @@ export const CartDrawer: React.FC = () => {
               <div className="flex items-baseline justify-between">
                 <div>
                   <span className="font-sans text-xs uppercase tracking-wider font-semibold text-jaggery-muted block">
-                    Estimated Subtotal
-                  </span>
-                  <span className="text-[10px] text-jaggery-subtle italic">
-                    (Sample launch demo pricing)
+                    Subtotal
                   </span>
                 </div>
                 <div className="font-display font-black text-2xl text-jaggery">
@@ -189,10 +186,10 @@ export const CartDrawer: React.FC = () => {
               </div>
 
               {/* Delivery info badge */}
-              <div className="p-3 bg-turmeric/15 rounded border border-turmeric/30 text-xs text-jaggery leading-relaxed flex items-start gap-2">
+              <div className="p-3 bg-cream-dark/60 rounded border border-jaggery/15 text-xs text-jaggery leading-relaxed flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-leaf shrink-0 mt-0.5" />
                 <span>
-                  <strong>Free Karnataka Delivery:</strong> Orders over ₹499 qualify for complimentary dispatch from our Hassan kitchen.
+                  Shipping calculated after delivery details are confirmed at checkout.
                 </span>
               </div>
 

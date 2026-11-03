@@ -7,7 +7,7 @@ export const SIGNATURE_PRODUCTS: Product[] = [
     name: 'Traditional Hassan Chakkali',
     kannadaName: 'ಹಾಸನ ಚಕ್ಕುಲಿ',
     shortDescription:
-      'Signature golden-brown spirals pressed through star apertures with toasted sesame, cumin, and cold-pressed oil.',
+      'Signature golden-brown spirals pressed through star apertures with toasted sesame, cumin, and fragrant spices.',
     fullDescription:
       'Handcrafted in small batches in Hassan using heirloom rice flour and roasted gram. Each spiral is fried gently to achieve a delicate crisp snap that melts cleanly on the palate without oiliness.',
     category: 'kuruk-thindi',
@@ -25,7 +25,7 @@ export const SIGNATURE_PRODUCTS: Product[] = [
       'Roasted gram (hurigadale)',
       'Toasted white sesame',
       'Cumin seeds',
-      'Cold-pressed oil',
+      'Vegetable oil',
       'Rock salt',
     ],
     allergens: [
@@ -36,10 +36,10 @@ export const SIGNATURE_PRODUCTS: Product[] = [
       'Store in an airtight glass or steel tin in a cool, dry place away from direct sunlight. Do not refrigerate.',
     shelfLife: '60 days from dispatch',
     foodDeclaration:
-      '100% Vegetarian artisan snack. Free from palm oil, artificial colors, or chemical preservatives.',
+      'Traditional vegetarian savoury. Free from artificial colours or chemical preservatives.',
     storyTitle: 'A little story behind the crunch',
     storyContent:
-      'In Hassan households, festive mornings always carry the unmistakable aroma of hot oil and roasting sesame. The brass mould—often passed down from grandmother to daughter—presses the dough into concentric star-edged spirals before descending into simmering cold-pressed oil.',
+      'In Hassan households, festive mornings always carry the unmistakable aroma of hot oil and roasting sesame. The brass mould—often passed down from grandmother to daughter—presses the dough into concentric star-edged spirals before descending into simmering hot oil.',
     relatedProductIds: ['thindi-kodubale-02', 'thindi-nippattu-03'],
     inStock: true,
     displayOrder: 1,
@@ -94,7 +94,7 @@ export const SIGNATURE_PRODUCTS: Product[] = [
       'Ajwain (carom seeds)',
       'Crushed black pepper',
       'Hing (asafoetida)',
-      'Cold-pressed oil',
+      'Vegetable oil',
       'Sea salt',
     ],
     allergens: [
@@ -156,7 +156,7 @@ export const SIGNATURE_PRODUCTS: Product[] = [
       'Fresh curry leaves',
       'Byadagi chilli powder',
       'White sesame',
-      'Cold-pressed oil',
+      'Vegetable oil',
       'Salt',
     ],
     allergens: [
@@ -167,7 +167,7 @@ export const SIGNATURE_PRODUCTS: Product[] = [
       'Keep sealed in an airtight tin. Keep away from heat and moisture.',
     shelfLife: '60 days from dispatch',
     foodDeclaration:
-      'Authentic vegetarian cracker snack. Crafted with cold-pressed oils and sun-dried Byadagi chillies.',
+      'Authentic vegetarian cracker snack. Crafted with sun-dried Byadagi chillies and roasted peanuts.',
     storyTitle: 'Flattened by hand, rich with roasted peanuts',
     storyContent:
       'Unlike factory-extruded crackers, authentic Hassan nippattu requires the delicate touch of an experienced hand. Each round is pressed flat onto oil-smeared parchment, embedding whole roasted peanuts so every single bite yields distinct nutty crunch.',
@@ -199,7 +199,7 @@ export const SIGNATURE_PRODUCTS: Product[] = [
     name: 'Mavinkayi Mango Pickle',
     kannadaName: 'ಮಾವಿನಕಾಯಿ ಉಪ್ಪಿನಕಾಯಿ',
     shortDescription:
-      'Hand-cut raw mango steeped in cold-pressed sesame oil, stone-ground mustard, and roasted fenugreek.',
+      'Hand-cut raw mango steeped in traditional sesame oil, stone-ground mustard, and roasted fenugreek.',
     fullDescription:
       'Aged in traditional glazed ceramic bharani jars under the Hassan sun. Free from synthetic preservatives or vinegar, preserving the signature deep tang and fiery spice of Karnataka home pickle craft.',
     category: 'uppinakai',
@@ -213,7 +213,7 @@ export const SIGNATURE_PRODUCTS: Product[] = [
     origin: 'Hassan, Karnataka',
     ingredients: [
       'Raw green mangoes',
-      'Cold-pressed sesame oil',
+      'Sesame oil',
       'Stone-ground mustard (sasive)',
       'Roasted fenugreek (methi)',
       'Byadagi chilli',
@@ -265,10 +265,10 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
       'A revered centerpiece of Karnataka festive feasts. Soft thin outer dough kneaded with patience, filled with rich organic jaggery puran and spiced with freshly ground cardamom, lightly pan-roasted with pure ghee.',
     category: 'sihi-thindi',
     categoryLabel: 'Festive Sweets',
-    imageSrc: '/images/categories/sihi-thindi.jpg',
+    imageSrc: '/images/products/obbattu.jpg',
     imageAlt: 'Traditional Bele Obbattu golden crêpe lightly brushed with ghee on fresh banana leaf',
     galleryImages: [
-      '/images/categories/sihi-thindi.jpg',
+      '/images/products/obbattu.jpg',
       '/images/festivals/festive-ugadi.jpg',
     ],
     origin: 'Hassan, Karnataka',
@@ -325,11 +325,11 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
       'Prepared using time-tested Hassan confectionery techniques. Raw rice is soaked, pounded fresh, and simmered into bubbling jaggery syrup with white sesame and cardamom before frying into deep mahogany rounds.',
     category: 'sihi-thindi',
     categoryLabel: 'Heritage Confections',
-    imageSrc: '/images/festivals/festive-ugadi.jpg',
+    imageSrc: '/images/products/kajjaya.jpg',
     imageAlt: 'Authentic golden-brown Kajjaya sweets stacked on brass platter',
     galleryImages: [
-      '/images/festivals/festive-ugadi.jpg',
-      '/images/categories/sihi-thindi.jpg',
+      '/images/products/kajjaya.jpg',
+      '/images/festivals/festive-deepavali.jpg',
     ],
     origin: 'Hassan, Karnataka',
     ingredients: [
@@ -337,7 +337,7 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
       'Aged dark jaggery',
       'White sesame seeds',
       'Green cardamom',
-      'Cold-pressed groundnut oil',
+      'Groundnut oil',
     ],
     allergens: ['Contains Sesame seeds and Groundnut oil'],
     storageInstructions:
@@ -381,11 +381,11 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
       'Cooked rice paste gently spiced with green chillies, cumin, and hing, pressed onto cotton sheets to bake under the warm Karnataka sun. Fries in seconds into feather-light, airy crisps.',
     category: 'appala-sandige',
     categoryLabel: 'Sun-Dried Crisps',
-    imageSrc: '/images/categories/appala-sandige.jpg',
+    imageSrc: '/images/products/sandige.jpg',
     imageAlt: 'Sun-dried Akki Sandige raw discs and fried airy white crisps in a bamboo sieve',
     galleryImages: [
+      '/images/products/sandige.jpg',
       '/images/categories/appala-sandige.jpg',
-      '/images/closing/closing-platter.jpg',
     ],
     origin: 'Hassan, Karnataka',
     ingredients: [
@@ -437,11 +437,11 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
       'A beloved accompaniment to Karnataka bisi bele bath and rasam rice. Hand-kneaded with crushed Tellicherry black pepper and hing, rolled thin and sun-cured naturally without artificial bleaching agents.',
     category: 'appala-sandige',
     categoryLabel: 'Artisan Papadams',
-    imageSrc: '/images/categories/appala-sandige.jpg',
+    imageSrc: '/images/products/appala.jpg',
     imageAlt: 'Crisp sun-dried Urad Appala discs stacked with whole black pepper corns',
     galleryImages: [
+      '/images/products/appala.jpg',
       '/images/categories/appala-sandige.jpg',
-      '/images/categories/kuruk-thindi.jpg',
     ],
     origin: 'Hassan, Karnataka',
     ingredients: [
@@ -491,19 +491,19 @@ export const ADDITIONAL_PRODUCTS: Product[] = [
     shortDescription:
       'Plump native country lemons salt-cured in ceramic bharani jars with Byadagi chilli, mustard, and roasted fenugreek.',
     fullDescription:
-      'Whole fresh country lemons quartered and cured in mineral salt for months until the rind softens completely. Tossed in hot cold-pressed sesame oil with freshly crushed mustard and fragrant roasted methi seeds.',
+      'Whole fresh country lemons quartered and cured in mineral salt for months until the rind softens completely. Tossed in hot sesame oil with freshly crushed mustard and fragrant roasted methi seeds.',
     category: 'uppinakai',
     categoryLabel: 'Sun-Matured Pickles',
-    imageSrc: '/images/categories/uppinakai.jpg',
+    imageSrc: '/images/products/lemon-uppinakai.jpg',
     imageAlt: 'Glossy red-spiced Nimbe lemon pickle pieces in traditional ceramic bharani jar',
     galleryImages: [
-      '/images/categories/uppinakai.jpg',
+      '/images/products/lemon-uppinakai.jpg',
       '/images/products/mango-uppinakai.jpg',
     ],
     origin: 'Hassan, Karnataka',
     ingredients: [
       'Native country lemons',
-      'Cold-pressed sesame oil',
+      'Sesame oil',
       'Byadagi chilli powder',
       'Mustard seeds',
       'Roasted fenugreek',

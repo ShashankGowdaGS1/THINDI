@@ -44,7 +44,7 @@ export const ProductStory: React.FC<ProductStoryProps> = ({ product }) => {
 
             <div className="pt-4 flex items-center gap-3 text-xs text-jaggery/60">
               <span className="w-2 h-2 rounded-full bg-turmeric" />
-              <span>Small-batch fried in cold-pressed oil · Handcrafted in Hassan, Karnataka</span>
+              <span>Prepared with authentic recipes · Handcrafted in Hassan, Karnataka</span>
             </div>
           </div>
 

@@ -111,7 +111,7 @@ export const CategoryPreviewModal: React.FC<CategoryPreviewModalProps> = ({
         <div className="bg-cream-dark/60 p-3.5 rounded border border-jaggery/10 flex items-start gap-2.5 mb-6 text-xs text-jaggery-muted leading-relaxed">
           <MapPin className="w-4 h-4 text-leaf shrink-0 mt-0.5" />
           <span>
-            Crafted in small batches in Hassan, Karnataka with cold-pressed oils and stone-ground flours. Explore all authentic savouries in this collection.
+            Handcrafted in Hassan, Karnataka with stone-ground flours and time-tested recipes. Explore all authentic savouries in this collection.
           </span>
         </div>
 

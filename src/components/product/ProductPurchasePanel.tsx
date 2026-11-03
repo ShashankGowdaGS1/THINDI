@@ -163,7 +163,7 @@ export const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
           {isAvailable ? (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-leaf/10 text-leaf text-xs font-medium">
               <span className="w-2 h-2 rounded-full bg-leaf animate-pulse" />
-              Fresh Batch in Stock
+              In Stock · Ready for Dispatch
             </span>
           ) : (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-chilli/10 text-chilli text-xs font-medium">

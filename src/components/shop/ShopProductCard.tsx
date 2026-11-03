@@ -88,39 +88,27 @@ export const ShopProductCard: React.FC<ShopProductCardProps> = ({
       </Link>
 
       {/* ========================================================
-          CARD BODY: Titles, Origin & Description
+          CARD BODY: Titles, Kannada Name & Description
           ======================================================== */}
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
         <div>
-          {/* Origin & In-Stock Status */}
-          <div className="flex items-center justify-between gap-2 text-xs text-jaggery/60 mb-2">
-            <span className="inline-flex items-center gap-1 font-sans">
-              <MapPin className="w-3 h-3 text-leaf" />
-              {product.origin}
-            </span>
-
-            <span className="inline-flex items-center gap-1 text-[11px] font-medium text-leaf">
-              <span className="w-1.5 h-1.5 rounded-full bg-leaf" />
-              Fresh batch
-            </span>
-          </div>
-
           {/* Title & Kannada Name */}
-          <Link href={`/products/${product.slug}`} className="block group/title">
-            <h2
-              id={`product-heading-${product.id}`}
-              className="font-serif text-lg sm:text-xl font-bold text-jaggery leading-snug group-hover/title:text-chilli transition-colors"
-            >
-              {product.name}
-            </h2>
+          <Link href={`/products/${product.slug}`} className="block group/title mb-1.5">
+            <div className="flex items-baseline justify-between gap-2">
+              <h2
+                id={`product-heading-${product.id}`}
+                className="font-display text-lg sm:text-xl font-bold text-jaggery leading-snug group-hover/title:text-chilli transition-colors"
+              >
+                {product.name}
+              </h2>
+            </div>
+            <p className="font-kannada text-xs sm:text-sm text-chilli/90 font-semibold mt-0.5">
+              {product.kannadaName}
+            </p>
           </Link>
 
-          <p className="font-kannada text-xs sm:text-sm text-jaggery/55 font-medium mt-0.5 mb-2">
-            {product.kannadaName}
-          </p>
-
           {/* Short Description */}
-          <p className="font-sans text-xs sm:text-sm text-jaggery/75 line-clamp-2 leading-relaxed mb-4">
+          <p className="font-sans text-xs text-jaggery-muted line-clamp-2 leading-relaxed mb-4">
             {product.shortDescription}
           </p>
         </div>
@@ -140,10 +128,10 @@ export const ShopProductCard: React.FC<ShopProductCardProps> = ({
           {/* Price & Purchase Action Row */}
           <div className="flex items-center justify-between gap-2 pt-1">
             <div className="flex flex-col">
-              <span className="text-[10px] uppercase font-semibold text-jaggery/50 tracking-wider">
-                Current Price
+              <span className="text-[10px] uppercase font-sans font-semibold text-jaggery-subtle tracking-wider">
+                Price
               </span>
-              <span className="font-serif text-xl sm:text-2xl font-bold text-jaggery">
+              <span className="font-mono text-xl sm:text-2xl font-bold text-jaggery">
                 ₹{selectedVariant.price}
               </span>
             </div>
@@ -153,7 +141,7 @@ export const ShopProductCard: React.FC<ShopProductCardProps> = ({
                 type="button"
                 onClick={() => onInspectDetails(product)}
                 aria-label={`Inspect recipe and ingredients for ${product.name}`}
-                className="px-2.5 py-2 rounded-sm border border-jaggery/20 text-xs font-sans font-medium text-jaggery hover:bg-cream transition-colors cursor-pointer"
+                className="px-2.5 py-1.5 rounded-sm border border-jaggery/20 text-xs font-sans font-medium text-jaggery hover:bg-cream transition-colors cursor-pointer"
               >
                 Details
               </button>

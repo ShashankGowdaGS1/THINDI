@@ -92,11 +92,11 @@ export const CombosPageView: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-cream/60 border border-jaggery/15">
                   <Truck className="w-3.5 h-3.5 text-leaf" />
-                  <span>Statewide Karnataka shipping</span>
+                  <span>Doorstep courier delivery</span>
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-cream/60 border border-jaggery/15">
                   <ShieldCheck className="w-3.5 h-3.5 text-leaf" />
-                  <span>Zero palm oil</span>
+                  <span>Traditional recipes</span>
                 </div>
               </div>
             </div>
@@ -147,7 +147,13 @@ export const CombosPageView: React.FC = () => {
                   {/* Top Image & Badge */}
                   <div className="relative aspect-16/10 overflow-hidden bg-cream-dark">
                     <Image
-                      src={bundle.imageSrc}
+                      src={
+                        bundle.id === 'thindi-box-celebration'
+                          ? '/images/festivals/festive-deepavali.jpg'
+                          : bundle.id === 'thindi-box-family'
+                          ? '/images/categories/kuruk-thindi.jpg'
+                          : bundle.imageSrc
+                      }
                       alt={bundle.imageAlt || bundle.name}
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"

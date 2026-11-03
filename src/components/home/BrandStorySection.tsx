@@ -193,7 +193,7 @@ export const BrandStorySection: React.FC = () => {
                         Gentle Heat:
                       </strong>
                       <span className="text-jaggery-muted">
-                        Simmered in pure cold-pressed oil until golden, achieving a tender
+                        Fried gently in hot oil until pale golden, achieving a tender
                         crunch that never feels heavy.
                       </span>
                     </div>

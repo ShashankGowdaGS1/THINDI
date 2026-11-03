@@ -1,34 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Search, ShoppingBag, Menu, X, ArrowRight } from 'lucide-react';
 import { ThindiWordmark } from '../brand/ThindiWordmark';
 import { Button } from '../brand/Button';
-import { UpcomingNoticeModal } from '../brand/UpcomingNoticeModal';
+import { SearchModal } from './SearchModal';
 import { useCart } from '@/context/CartContext';
 
 export const Header: React.FC = () => {
   const { totalCount, openCart } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [noticeModal, setNoticeModal] = useState<{
-    isOpen: boolean;
-    title: string;
-    description: string;
-  }>({
-    isOpen: false,
-    title: '',
-    description: '',
-  });
+  const [searchOpen, setSearchOpen] = useState(false);
 
-  const triggerUpcoming = (title: string, description: string) => {
-    setNoticeModal({
-      isOpen: true,
-      title,
-      description,
-    });
-    setMobileMenuOpen(false);
-  };
+  // Global shortcut to open search with Cmd+K / Ctrl+K
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <>
@@ -86,14 +81,10 @@ export const Header: React.FC = () => {
               {/* Search Icon */}
               <button
                 type="button"
-                onClick={() =>
-                  triggerUpcoming(
-                    'Search THINDI Pantry',
-                    'Search will allow you to look up ingredients, flavour profiles, and specific regional savouries across Karnataka.'
-                  )
-                }
-                className="p-2 sm:p-2.5 text-jaggery/75 hover:text-chilli hover:bg-cream-dark/50 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli"
-                aria-label="Search snacks"
+                onClick={() => setSearchOpen(true)}
+                className="p-2 sm:p-2.5 text-jaggery/75 hover:text-chilli hover:bg-cream-dark/50 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli cursor-pointer"
+                aria-label="Search snacks (Cmd+K)"
+                title="Search snacks (Cmd+K)"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -197,6 +188,20 @@ export const Header: React.FC = () => {
                 <span>Customer FAQs</span>
                 <span className="text-xs text-jaggery-muted font-kannada">ಪ್ರಶ್ನೋತ್ತರ</span>
               </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setSearchOpen(true);
+                }}
+                className="flex items-center justify-between text-base font-sans font-medium text-jaggery/80 hover:text-chilli py-2 border-b border-jaggery/5 text-left w-full cursor-pointer"
+              >
+                <span className="flex items-center gap-2">
+                  <Search className="w-4 h-4 text-chilli" />
+                  <span>Search Pantry</span>
+                </span>
+                <span className="text-xs text-jaggery-muted font-kannada">ಹುಡುಕಿ</span>
+              </button>
             </nav>
 
             <div className="pt-2">
@@ -215,12 +220,10 @@ export const Header: React.FC = () => {
         )}
       </header>
 
-      {/* Upcoming Feature Informational Modal */}
-      <UpcomingNoticeModal
-        isOpen={noticeModal.isOpen}
-        onClose={() => setNoticeModal((prev) => ({ ...prev, isOpen: false }))}
-        featureTitle={noticeModal.title}
-        featureDescription={noticeModal.description}
+      {/* Accessible Working Search Dialog */}
+      <SearchModal
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
       />
     </>
   );

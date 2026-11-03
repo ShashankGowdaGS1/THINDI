@@ -1,7 +1,6 @@
 import React from 'react';
 import { Header } from '@/components/navigation/Header';
 import { HeroSection } from '@/components/hero/HeroSection';
-import { BelowFoldTransition } from '@/components/home/BelowFoldTransition';
 import { ShopByCravingSection } from '@/components/craving/ShopByCravingSection';
 import { SignaturePicksSection } from '@/components/product/SignaturePicksSection';
 import { BrandStorySection } from '@/components/home/BrandStorySection';
@@ -23,9 +22,6 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Stage 1: Hero Section */}
         <HeroSection />
-
-        {/* Stage 1: Below-The-Fold Typographic Transition */}
-        <BelowFoldTransition />
 
         {/* Stage 2: Shop by Craving Section */}
         <ShopByCravingSection />
