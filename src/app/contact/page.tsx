@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'Contact Us & Kitchen Care | THINDI Traditional Karnataka Foods',
   description:
     'Get in touch with THINDI in Hassan, Karnataka. Enquiries about traditional snacks, orders, and customer support.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 export default function ContactPage() {

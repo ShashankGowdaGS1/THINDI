@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: ConfirmationPageProps): Promi
   return {
     title: `Order Confirmed: ${reference} | THINDI Foods`,
     description: `Order confirmation for reference ${reference}. Handcrafted traditional Karnataka snacks from Hassan.`,
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 

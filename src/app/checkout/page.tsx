@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: 'Secure Checkout | THINDI Traditional Karnataka Foods',
   description:
     'Complete your Karnataka traditional snack order with secure delivery across Karnataka.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function CheckoutPage() {

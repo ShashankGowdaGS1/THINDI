@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: 'Your Snack Box | THINDI Traditional Karnataka Foods',
   description:
     'Review your selected authentic handmade Karnataka savouries and sweets before placing your order from Hassan.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function CartPage() {

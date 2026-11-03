@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
 import { getProductBySlug, getAllProductSlugs } from '@/data/products';
+import { getSiteUrl } from '@/data/siteConfig';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductPurchasePanel } from '@/components/product/ProductPurchasePanel';
 import { ProductStory } from '@/components/product/ProductStory';
@@ -21,11 +22,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = getProductBySlug(slug);
+  const siteUrl = getSiteUrl();
 
   if (!product) {
     return {
       title: 'Product Not Found | THINDI',
       description: 'The requested traditional Karnataka food item could not be found.',
+      robots: { index: false, follow: false },
     };
   }
 
@@ -33,15 +36,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${product.name} (${product.kannadaName}) | THINDI Foods Hassan`,
     description: product.shortDescription,
     keywords: product.keywords,
+    alternates: {
+      canonical: `/products/${product.slug}`,
+    },
     openGraph: {
       title: `${product.name} | THINDI Traditional Foods`,
       description: product.shortDescription,
+      url: `${siteUrl}/products/${product.slug}`,
+      type: 'website',
       images: [
         {
-          url: product.imageSrc,
+          url: `${siteUrl}${product.imageSrc}`,
+          width: 1200,
+          height: 896,
           alt: product.imageAlt || product.name,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | THINDI Foods Hassan`,
+      description: product.shortDescription,
+      images: [`${siteUrl}${product.imageSrc}`],
     },
   };
 }
@@ -58,8 +74,55 @@ export default async function ProductDetailPage({ params }: PageProps) {
     ? product.galleryImages
     : [product.imageSrc];
 
+  const siteUrl = getSiteUrl();
+
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Product',
+        '@id': `${siteUrl}/products/${product.slug}#product`,
+        name: product.name,
+        description: product.shortDescription,
+        image: `${siteUrl}${product.imageSrc}`,
+        brand: {
+          '@type': 'Brand',
+          name: 'THINDI',
+        },
+        category: product.category,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Shop',
+            item: `${siteUrl}/shop`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: product.name,
+            item: `${siteUrl}/products/${product.slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-cream text-jaggery selection:bg-chilli selection:text-cream">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       {/* Brand Navigation */}
       <Header />
 

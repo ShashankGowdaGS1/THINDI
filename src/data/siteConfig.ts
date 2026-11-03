@@ -70,3 +70,26 @@ export const siteConfig: SiteConfig = {
   },
 };
 
+/**
+ * Resolves the canonical site URL dynamically for production, preview, or local dev.
+ * Priority:
+ * 1. NEXT_PUBLIC_SITE_URL environment variable (when defined and not localhost/placeholder)
+ * 2. VERCEL_PROJECT_PRODUCTION_URL (Vercel production system env)
+ * 3. VERCEL_URL (Vercel deployment env)
+ * 4. Active deployed URL: https://thindi-psi.vercel.app
+ */
+export function getSiteUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (envUrl && !envUrl.includes('localhost') && !envUrl.includes('thindi.in')) {
+    return envUrl.replace(/\/$/, '');
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return 'https://thindi-psi.vercel.app';
+}
+
+

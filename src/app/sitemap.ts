@@ -1,12 +1,13 @@
 import { MetadataRoute } from 'next';
 import { SIGNATURE_PRODUCTS } from '@/data/products';
 import { getAllCategorySlugs } from '@/data/categories';
+import { getSiteUrl } from '@/data/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thindi.in';
+  const baseUrl = getSiteUrl();
   const currentDate = new Date();
 
-  // Core public static routes
+  // Core public indexable routes
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}`,
@@ -31,12 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/track-order`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,
@@ -76,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic collection routes
+  // Dynamic published collection routes
   const collectionRoutes: MetadataRoute.Sitemap = getAllCategorySlugs().map((slug) => ({
     url: `${baseUrl}/collections/${slug}`,
     lastModified: currentDate,
@@ -84,14 +79,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Dynamic product routes (all active products)
-  const productRoutes: MetadataRoute.Sitemap = SIGNATURE_PRODUCTS.map((product) => ({
-    url: `${baseUrl}/products/${product.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  // Dynamic active products (strictly published items)
+  const productRoutes: MetadataRoute.Sitemap = SIGNATURE_PRODUCTS
+    .filter((product) => product.active !== false)
+    .map((product) => ({
+      url: `${baseUrl}/products/${product.slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }));
 
   return [...staticRoutes, ...collectionRoutes, ...productRoutes];
 }
-

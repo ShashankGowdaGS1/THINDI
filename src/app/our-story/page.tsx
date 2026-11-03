@@ -6,15 +6,38 @@ import { Footer } from '@/components/navigation/Footer';
 import { ArrowRight, MapPin, Heart } from 'lucide-react';
 import { Button } from '@/components/brand/Button';
 
+import { getSiteUrl } from '@/data/siteConfig';
+
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
   title: 'Our Story | Good Thindi, Great Memories | THINDI Hassan',
   description:
     'Discover the culinary roots of THINDI originating in Hassan, Karnataka. Authentic handmade chakkali, kodubale, nippattu, and traditional flavours crafted to be shared.',
+  alternates: {
+    canonical: '/our-story',
+  },
   openGraph: {
     title: 'Our Story | THINDI — Hassan, Karnataka',
     description:
       'Some flavours stay with us. Explore the authentic culinary heritage of Karnataka traditional savouries from Hassan.',
-    images: ['/images/story/story-heritage.jpg'],
+    url: `${siteUrl}/our-story`,
+    type: 'website',
+    images: [
+      {
+        url: `${siteUrl}/images/story/story-heritage.jpg`,
+        width: 1200,
+        height: 800,
+        alt: 'Culinary roots and traditional wood-fired kitchens of Hassan, Karnataka',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Story | THINDI — Hassan, Karnataka',
+    description:
+      'Explore the authentic culinary heritage of Karnataka traditional savouries from Hassan.',
+    images: [`${siteUrl}/images/story/story-heritage.jpg`],
   },
 };
 

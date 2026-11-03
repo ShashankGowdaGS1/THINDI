@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Customer FAQs | Questions? Let’s Sort Them | THINDI Hassan',
   description:
     'Find answers to common customer questions about THINDI products, Hassan kitchen origin, Karnataka shipping coverage, ingredients, and gift boxes.',
+  alternates: {
+    canonical: '/faq',
+  },
   openGraph: {
     title: 'Customer FAQs | THINDI Traditional Food',
     description: 'Everything you need to know about our products, ordering, and delivery.',

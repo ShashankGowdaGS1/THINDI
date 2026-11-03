@@ -1,7 +1,19 @@
 import { MetadataRoute } from 'next';
+import { getSiteUrl } from '@/data/siteConfig';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thindi.in';
+  const baseUrl = getSiteUrl();
+  const isPreview = process.env.VERCEL_ENV === 'preview';
+
+  // Prevent preview deployments from competing with production URLs in search index
+  if (isPreview) {
+    return {
+      rules: {
+        userAgent: '*',
+        disallow: '/',
+      },
+    };
+  }
 
   return {
     rules: {
@@ -13,9 +25,9 @@ export default function robots(): MetadataRoute.Robots {
         '/order-confirmation/',
         '/orders/',
         '/api/',
+        '/cart/',
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }
-

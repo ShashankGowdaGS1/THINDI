@@ -6,6 +6,10 @@ import { ShopHero } from '@/components/shop/ShopHero';
 import { ShopCatalogue } from '@/components/shop/ShopCatalogue';
 import { ShopClosing } from '@/components/shop/ShopClosing';
 
+import { getSiteUrl } from '@/data/siteConfig';
+
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
   title: 'Shop All Thindi | Authentic Karnataka Traditional Snacks from Hassan',
   description:
@@ -20,6 +24,31 @@ export const metadata: Metadata = {
     'Uppinakai Hassan',
     'Akki Sandige',
   ],
+  alternates: {
+    canonical: '/shop',
+  },
+  openGraph: {
+    title: 'Shop All Thindi | Authentic Karnataka Traditional Snacks from Hassan',
+    description:
+      'Explore authentic Karnataka traditional snacks prepared in Hassan. Chakkali, Kodubale, Nippattu, Sandige and more.',
+    url: `${siteUrl}/shop`,
+    type: 'website',
+    images: [
+      {
+        url: `${siteUrl}/images/categories/kuruk-thindi.jpg`,
+        width: 1200,
+        height: 800,
+        alt: 'THINDI traditional Karnataka snacks assortment — Chakkali, Kodubale, and Nippattu',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shop All Thindi | Authentic Karnataka Traditional Snacks',
+    description:
+      'Handcrafted traditional Karnataka snacks from Hassan. Explore Chakkali, Kodubale, Nippattu, and more.',
+    images: [`${siteUrl}/images/categories/kuruk-thindi.jpg`],
+  },
 };
 
 function ShopCatalogueSkeleton() {
