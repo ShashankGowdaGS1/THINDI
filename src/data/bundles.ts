@@ -14,8 +14,8 @@ export const THINDI_BUNDLES: ThindiBundle[] = [
     available: true,
     itemCount: 3,
     totalWeight: '600g net assortment',
-    imageSrc: '/images/boxes/box-tea-time.jpg',
-    imageAlt: 'The Tea-Time Box: an open decorated cream and chilli-red gift carton with authentic Chakkali, Kodubale, and Nippattu',
+    imageSrc: '/images/thindi-boxes/tea-time-box.png',
+    imageAlt: 'THINDI Tea-Time gift box with Chakkali, Kodubale and Nippattu.',
     contents: [
       {
         name: 'Traditional Hassan Chakkali',
@@ -60,8 +60,8 @@ export const THINDI_BUNDLES: ThindiBundle[] = [
     available: true,
     itemCount: 4,
     totalWeight: '1.4kg net assortment',
-    imageSrc: '/images/boxes/box-family.jpg',
-    imageAlt: 'The Family Thindi Box: a generous partitioned kraft and leaf-green gift box with Chakkali, Kodubale, Nippattu, and Sandige',
+    imageSrc: '/images/thindi-boxes/family-thindi-box.png',
+    imageAlt: 'THINDI Family gift box with four traditional Karnataka snack varieties.',
     contents: [
       {
         name: 'Traditional Hassan Chakkali',
@@ -113,8 +113,8 @@ export const THINDI_BUNDLES: ThindiBundle[] = [
     available: true,
     itemCount: 5,
     totalWeight: '1.15kg net assortment',
-    imageSrc: '/images/boxes/box-celebration.jpg',
-    imageAlt: 'The Celebration Box: a festive cream, turmeric-gold and chilli-red gift box with savouries, Mavinkayi pickle jar, and Kajjaya sweets',
+    imageSrc: '/images/thindi-boxes/celebration-box.png',
+    imageAlt: 'THINDI Celebration gift box with traditional snacks, Kajjaya and Mango Uppinakai.',
     contents: [
       {
         name: 'Traditional Hassan Chakkali',

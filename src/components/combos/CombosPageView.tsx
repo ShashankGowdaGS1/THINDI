@@ -145,15 +145,9 @@ export const CombosPageView: React.FC = () => {
               >
                 <div>
                   {/* Top Image & Badge */}
-                  <div className="relative aspect-16/10 overflow-hidden bg-cream-dark">
+                  <div className="relative aspect-4/3 overflow-hidden bg-cream-dark">
                     <Image
-                      src={
-                        bundle.id === 'thindi-box-celebration'
-                          ? '/images/festivals/festive-deepavali.jpg'
-                          : bundle.id === 'thindi-box-family'
-                          ? '/images/categories/kuruk-thindi.jpg'
-                          : bundle.imageSrc
-                      }
+                      src={bundle.imageSrc}
                       alt={bundle.imageAlt || bundle.name}
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"

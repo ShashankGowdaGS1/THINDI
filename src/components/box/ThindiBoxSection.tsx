@@ -213,9 +213,9 @@ export const ThindiBoxSection: React.FC = () => {
             {/* RIGHT SIDE: Dominant Visual Gift Box Packaging Composition (6 cols) */}
             <div className="lg:col-span-6 relative">
               <div className="relative">
-                {/* Main Box Showcase Container: Kraft/Cream Box Art Direction */}
-                <div className="relative rounded-lg overflow-hidden border-2 border-jaggery/25 bg-cream shadow-[0_24px_50px_-10px_rgba(45,36,30,0.22)] group">
-                  <div className="relative aspect-[4/3] xl:aspect-[16/11] w-full overflow-hidden bg-cream-dark">
+                {/* Main Box Showcase Container: True 4:3 Packaging Art Direction */}
+                <div className="relative rounded-xl overflow-hidden border-2 border-jaggery/20 bg-cream shadow-[0_24px_50px_-10px_rgba(45,36,30,0.22)] group">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream-dark">
                     <Image
                       key={selectedBundle.id}
                       src={selectedBundle.imageSrc}
@@ -225,25 +225,20 @@ export const ThindiBoxSection: React.FC = () => {
                       sizes="(max-width: 1280px) 50vw, 650px"
                       className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-[1.02] animate-in fade-in duration-300"
                     />
-
-                    {/* Conceptual Gifting Mockup Badge */}
-                    <div className="absolute top-4 left-4 bg-jaggery/90 backdrop-blur-sm text-cream px-3 py-1 rounded text-[10px] uppercase font-sans font-bold tracking-wider border border-cream/20">
-                      Curated Gifting Box · Concept Packaging
-                    </div>
-
-                    {/* Small Chakkali Seal Badge */}
-                    <div className="absolute top-4 right-4 bg-cream/95 backdrop-blur-sm p-1.5 rounded-full border border-jaggery/20 shadow-md">
-                      <ChakkaliMotif size={26} color="#2D241E" accentColor="#A43D2E" />
-                    </div>
                   </div>
 
                   {/* Packaging Details Footer Strip */}
                   <div className="p-4 bg-cream border-t border-jaggery/15 flex items-center justify-between text-xs font-sans text-jaggery">
                     <div>
-                      <span className="font-display font-bold block text-sm">
-                        {selectedBundle.name}
-                      </span>
-                      <span className="text-[11px] text-jaggery-muted font-mono">
+                      <div className="flex items-center gap-2">
+                        <span className="font-display font-bold block text-sm">
+                          {selectedBundle.name}
+                        </span>
+                        <span className="text-[10px] uppercase font-sans font-semibold tracking-wider px-2 py-0.5 rounded bg-cream-dark border border-jaggery/15 text-jaggery-muted">
+                          Concept Packaging
+                        </span>
+                      </div>
+                      <span className="text-[11px] text-jaggery-muted font-mono mt-0.5 block">
                         {selectedBundle.totalWeight} · {selectedBundle.itemCount} Varieties
                       </span>
                     </div>
@@ -251,7 +246,7 @@ export const ThindiBoxSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setContentsModalOpen(true)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-turmeric text-jaggery font-semibold text-xs hover:bg-turmeric-light transition-colors border border-jaggery/15 cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-md bg-turmeric text-jaggery font-semibold text-xs hover:bg-turmeric-light transition-colors border border-jaggery/15 cursor-pointer shadow-xs"
                     >
                       <span>Inspect Items</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -293,8 +288,8 @@ export const ThindiBoxSection: React.FC = () => {
             </div>
 
             {/* 4. Large Gift Box Image */}
-            <div className="relative rounded-lg overflow-hidden border border-jaggery/25 bg-cream shadow-md">
-              <div className="relative aspect-[4/3] w-full">
+            <div className="relative rounded-xl overflow-hidden border border-jaggery/20 bg-cream shadow-md">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream-dark">
                 <Image
                   key={selectedBundle.id}
                   src={selectedBundle.imageSrc}
@@ -303,14 +298,16 @@ export const ThindiBoxSection: React.FC = () => {
                   sizes="100vw"
                   className="object-cover animate-in fade-in duration-300"
                 />
-                <div className="absolute top-3 left-3 bg-jaggery/90 text-cream px-2.5 py-0.5 rounded text-[10px] uppercase font-sans font-bold tracking-wider">
-                  Concept Gifting Box
-                </div>
               </div>
 
-              <div className="p-3 bg-cream flex items-center justify-between text-xs font-sans text-jaggery border-t border-jaggery/15">
-                <span className="font-bold">{selectedBundle.name}</span>
-                <span className="font-mono text-chilli font-semibold">
+              <div className="p-3.5 bg-cream flex items-center justify-between text-xs font-sans text-jaggery border-t border-jaggery/15">
+                <div>
+                  <span className="font-display font-bold block text-sm">{selectedBundle.name}</span>
+                  <span className="text-[10px] text-jaggery-muted uppercase font-sans tracking-wider font-semibold">
+                    Concept Packaging
+                  </span>
+                </div>
+                <span className="font-mono text-chilli font-bold text-xs">
                   {selectedBundle.totalWeight}
                 </span>
               </div>
@@ -332,7 +329,7 @@ export const ThindiBoxSection: React.FC = () => {
                       role="tab"
                       aria-selected={isSelected}
                       onClick={() => setSelectedBundle(bundle)}
-                      className={`min-h-[44px] p-2 sm:p-2.5 rounded-md text-left border transition-all cursor-pointer flex flex-col justify-between ${
+                      className={`min-h-[48px] p-2.5 rounded-md text-left border transition-all cursor-pointer flex flex-col justify-between ${
                         isSelected
                           ? 'bg-cream text-jaggery border-jaggery shadow-sm font-semibold ring-1 ring-jaggery/20'
                           : 'bg-cream/40 text-jaggery/80 border-jaggery/20 hover:bg-cream/60'
@@ -384,7 +381,7 @@ export const ThindiBoxSection: React.FC = () => {
               <Button
                 variant="primary"
                 size="md"
-                className={`w-full justify-center ${isAdded ? 'bg-leaf hover:bg-leaf' : ''}`}
+                className={`w-full justify-center min-h-[48px] font-semibold bg-chilli text-cream hover:bg-chilli-hover shadow-md ${isAdded ? 'bg-leaf hover:bg-leaf' : ''}`}
                 icon={
                   isAdded ? (
                     <Check className="w-4 h-4" />
