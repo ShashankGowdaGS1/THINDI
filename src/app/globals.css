@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #F7F0E3;
+  --color-cream-light: #FAF6ED;
+  --color-cream-dark: #EFE5D3;
+  --color-jaggery: #2D241E;
+  --color-jaggery-muted: #5C4E43;
+  --color-jaggery-subtle: #8A7B6E;
+  --color-chilli: #A43D2E;
+  --color-chilli-hover: #8E3224;
+  --color-turmeric: #E8B54B;
+  --color-leaf: #365541;
+}
+
+@layer base {
+  * {
+    border-color: #E3D7C6;
+  }
+
+  html {
+    background-color: var(--color-cream);
+    color: var(--color-jaggery);
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-jaggery);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-chilli);
+    color: var(--color-cream);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

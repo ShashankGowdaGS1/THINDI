@@ -1,0 +1,36 @@
+{
+  "name": "thindi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test scripts/test-shipping.mjs scripts/test-festivals.mjs scripts/test-faqs.mjs scripts/test-stage10.mjs scripts/test-shop.mjs scripts/test-pdp.mjs scripts/test-checkout.mjs scripts/test-tracking.mjs scripts/test-admin.mjs scripts/test-stage16.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.66.0",
+    "next": "^16.4.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^7.0.2"
+  }
+}
