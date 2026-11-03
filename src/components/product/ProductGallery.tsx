@@ -20,6 +20,22 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
 
   const activeImage = validImages[activeIndex] || validImages[0];
 
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsZoomOpen(false);
+    };
+    if (isZoomOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isZoomOpen]);
+
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % validImages.length);
   };

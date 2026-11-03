@@ -335,24 +335,26 @@ export const ThindiBoxSection: React.FC = () => {
                 Choose Box Assortment:
               </label>
 
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2" role="tablist" aria-label="Mobile Box Assortments">
                 {THINDI_BUNDLES.map((bundle) => {
                   const isSelected = bundle.id === selectedBundle.id;
                   return (
                     <button
                       key={bundle.id}
                       type="button"
+                      role="tab"
+                      aria-selected={isSelected}
                       onClick={() => setSelectedBundle(bundle)}
-                      className={`p-2.5 rounded-md text-left border transition-all ${
+                      className={`min-h-[44px] p-2 sm:p-2.5 rounded-md text-left border transition-all cursor-pointer flex flex-col justify-between ${
                         isSelected
-                          ? 'bg-cream text-jaggery border-jaggery shadow-sm font-semibold'
-                          : 'bg-cream/40 text-jaggery/80 border-jaggery/20'
+                          ? 'bg-cream text-jaggery border-jaggery shadow-sm font-semibold ring-1 ring-jaggery/20'
+                          : 'bg-cream/40 text-jaggery/80 border-jaggery/20 hover:bg-cream/60'
                       }`}
                     >
-                      <div className="font-display font-bold text-xs leading-snug line-clamp-1">
+                      <div className="font-display font-bold text-[11px] sm:text-xs leading-tight line-clamp-2">
                         {bundle.name}
                       </div>
-                      <div className="font-mono text-xs font-bold text-chilli mt-0.5">
+                      <div className="font-mono text-xs font-bold text-chilli mt-1">
                         ₹{bundle.price}
                       </div>
                     </button>

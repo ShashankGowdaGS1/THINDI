@@ -233,7 +233,65 @@ export default function AdminOverviewPage() {
             </Link>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-[#E6D9C8] bg-[#FFFCF7] shadow-xs">
+          {/* Mobile Orders Card View (< 768px) */}
+          <div className="md:hidden space-y-3">
+            {data?.recentOrders && data.recentOrders.length > 0 ? (
+              data.recentOrders.slice(0, 5).map((order) => (
+                <div
+                  key={order.id}
+                  className="p-3.5 rounded-xl border border-[#E6D9C8] bg-[#FFFCF7] shadow-xs space-y-2.5 text-xs"
+                >
+                  <div className="flex items-center justify-between pb-2 border-b border-[#E6D9C8]/60">
+                    <div>
+                      <span className="font-mono font-bold text-[#2D241E] block">
+                        {order.orderReference}
+                      </span>
+                      <span className="text-[11px] text-[#78695C]">
+                        {order.shippingAddress.city}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-mono font-bold text-[#2D241E] text-sm block">
+                        {formatCurrency(order.pricing.finalAmountPaise)}
+                      </span>
+                      <span
+                        className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold capitalize ${
+                          order.orderStatus === 'delivered'
+                            ? 'bg-[#365541]/10 text-[#365541]'
+                            : order.orderStatus === 'shipped'
+                            ? 'bg-blue-50 text-blue-700'
+                            : order.orderStatus === 'preparing'
+                            ? 'bg-amber-50 text-amber-700'
+                            : 'bg-[#F2EAE0] text-[#78695C]'
+                        }`}
+                      >
+                        {order.orderStatus}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    <span className="text-[#78695C] text-[11px]">
+                      {order.customer.fullName} · {order.items.reduce((s, i) => s + i.quantity, 0)} items
+                    </span>
+                    <Link
+                      href={`/admin/orders/${order.id}`}
+                      className="font-semibold text-[#A43D2E] hover:underline text-xs"
+                    >
+                      View →
+                    </Link>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="p-6 text-center text-[#78695C] bg-[#FFFCF7] rounded-xl border border-[#E6D9C8] text-xs">
+                No orders recorded yet.
+              </div>
+            )}
+          </div>
+
+          {/* Desktop & Tablet Table (>= 768px) */}
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-[#E6D9C8] bg-[#FFFCF7] shadow-xs">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="border-b border-[#E6D9C8] bg-[#FAF5EC]/70 text-[#78695C] uppercase tracking-wider">

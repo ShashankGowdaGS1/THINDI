@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
                 <li key={item.label}>
                   <Link
                     href={item.href || '#'}
-                    className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-block transition-all duration-150 py-1"
+                    className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-flex items-center min-h-[36px] transition-all duration-150 py-1"
                   >
                     {item.label}
                   </Link>
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
                     <button
                       type="button"
                       onClick={(e) => handleNavClick(item, e)}
-                      className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-flex items-center gap-1.5 transition-all duration-150 py-1 cursor-pointer text-left"
+                      className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-flex items-center gap-1.5 min-h-[36px] transition-all duration-150 py-1 cursor-pointer text-left"
                     >
                       <span>{item.label}</span>
                     </button>
@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
                     <button
                       type="button"
                       onClick={(e) => handleNavClick(item, e)}
-                      className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-flex items-center gap-1.5 transition-all duration-150 py-1 cursor-pointer text-left"
+                      className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-flex items-center gap-1.5 min-h-[36px] transition-all duration-150 py-1 cursor-pointer text-left"
                     >
                       <span>{item.label}</span>
                       <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-cream/10 text-cream/50">
@@ -105,7 +105,7 @@ export const Footer: React.FC = () => {
                   ) : (
                     <Link
                       href={item.href || '#'}
-                      className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-flex items-center gap-1.5 transition-all duration-150 py-1"
+                      className="font-sans text-sm sm:text-base text-cream/75 hover:text-turmeric hover:translate-x-0.5 inline-flex items-center gap-1.5 min-h-[36px] transition-all duration-150 py-1"
                     >
                       <span>{item.label}</span>
                     </Link>

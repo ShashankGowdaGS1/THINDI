@@ -11,6 +11,7 @@ import {
   AlertCircle,
   Truck,
   CreditCard,
+  ShoppingBag,
   ArrowRight,
   ArrowLeft,
   RefreshCw,
@@ -368,6 +369,93 @@ export const CheckoutWizard: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Mobile Collapsible Order Summary Banner (< 1024px) */}
+        <div className="lg:hidden mb-6 rounded-xl border border-jaggery/15 bg-warm-white overflow-hidden shadow-xs">
+          <button
+            type="button"
+            onClick={() => setIsSummaryOpenMobile(!isSummaryOpenMobile)}
+            className="w-full px-4 py-3 bg-cream-dark/40 flex items-center justify-between text-xs font-sans font-semibold text-jaggery cursor-pointer"
+            aria-expanded={isSummaryOpenMobile}
+          >
+            <div className="flex items-center gap-2">
+              <ShoppingBag className="w-4 h-4 text-chilli" />
+              <span>{isSummaryOpenMobile ? 'Hide order summary' : 'Show order summary'}</span>
+              {isSummaryOpenMobile ? (
+                <ChevronUp className="w-3.5 h-3.5 text-jaggery/60" />
+              ) : (
+                <ChevronDown className="w-3.5 h-3.5 text-jaggery/60" />
+              )}
+            </div>
+            <span className="font-mono text-sm font-bold text-jaggery">
+              ₹{finalPayableRupees}
+            </span>
+          </button>
+
+          {isSummaryOpenMobile && (
+            <div className="p-4 border-t border-jaggery/10 space-y-3 text-xs animate-in slide-in-from-top-1 duration-150">
+              <div className="max-h-52 overflow-y-auto divide-y divide-jaggery/5 pr-1">
+                {items.map((item) => (
+                  <div key={item.id} className="py-2 flex items-center justify-between gap-2.5">
+                    <div className="flex items-center gap-2">
+                      <div className="relative w-8 h-8 rounded bg-cream overflow-hidden shrink-0 border border-jaggery/10">
+                        <Image
+                          src={item.product.imageSrc}
+                          alt={item.product.name}
+                          fill
+                          sizes="32px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <span className="font-semibold text-jaggery block truncate max-w-[140px]">
+                          {item.product.name}
+                        </span>
+                        <span className="text-jaggery/50 font-mono text-[10px]">
+                          {item.variant.weight} × {item.quantity}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="font-mono font-semibold text-jaggery">
+                      ₹{item.variant.price * item.quantity}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2 border-t border-jaggery/10 space-y-1.5 font-sans">
+                <div className="flex justify-between text-jaggery/70">
+                  <span>Items Subtotal</span>
+                  <span className="font-mono">₹{subtotal}</span>
+                </div>
+                {calcResult && calcResult.pricing.discountAmountPaise > 0 && (
+                  <div className="flex justify-between text-leaf font-medium">
+                    <span>Discount ({appliedPromo})</span>
+                    <span className="font-mono">-₹{calcResult.pricing.discountAmountPaise / 100}</span>
+                  </div>
+                )}
+                <div className="flex justify-between text-jaggery/70">
+                  <span>Delivery Charge</span>
+                  <span className="font-mono">
+                    {calcResult && (calcResult.pricing.isShippingFree || calcResult.pricing.shippingChargePaise === 0)
+                      ? 'FREE'
+                      : `₹${calcResult ? calcResult.pricing.shippingChargePaise / 100 : 49}`}
+                  </span>
+                </div>
+                <div className="flex justify-between text-jaggery/70">
+                  <span>Taxes (GST 5% included)</span>
+                  <span className="font-mono">
+                    ₹{calcResult ? calcResult.pricing.taxAmountPaise / 100 : 0}
+                  </span>
+                </div>
+                <div className="flex justify-between font-bold text-jaggery pt-1 border-t border-jaggery/10 text-sm">
+                  <span>Total Amount</span>
+                  <span className="font-mono text-base">₹{finalPayableRupees}</span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Two-Column Layout (Forms Left ~60%, Persistent Summary Right ~40%) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

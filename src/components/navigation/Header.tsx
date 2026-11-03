@@ -13,23 +13,37 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  // Global shortcut to open search with Cmd+K / Ctrl+K
+  // Global shortcut to open search with Cmd+K / Ctrl+K & Escape handling
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setSearchOpen((prev) => !prev);
+      } else if (e.key === 'Escape') {
+        if (mobileMenuOpen) setMobileMenuOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [mobileMenuOpen]);
+
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <>
       <header className="sticky top-0 z-40 w-full bg-cream/95 backdrop-blur-md border-b border-jaggery/10 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 sm:h-24">
+          <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
             {/* Left: THINDI Wordmark with Kannada identity */}
             <div className="flex-shrink-0 flex items-center">
               <ThindiWordmark size="md" />
@@ -77,12 +91,12 @@ export const Header: React.FC = () => {
             </nav>
 
             {/* Right: Actions */}
-            <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="flex items-center space-x-1 sm:space-x-3">
               {/* Search Icon */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="p-2 sm:p-2.5 text-jaggery/75 hover:text-chilli hover:bg-cream-dark/50 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli cursor-pointer"
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-jaggery/75 hover:text-chilli hover:bg-cream-dark/50 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli cursor-pointer"
                 aria-label="Search snacks (Cmd+K)"
                 title="Search snacks (Cmd+K)"
               >
@@ -93,7 +107,7 @@ export const Header: React.FC = () => {
               <button
                 type="button"
                 onClick={openCart}
-                className="relative p-2 sm:p-2.5 text-jaggery/75 hover:text-chilli hover:bg-cream-dark/50 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli cursor-pointer"
+                className="relative min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-jaggery/75 hover:text-chilli hover:bg-cream-dark/50 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli cursor-pointer"
                 aria-label={`View shopping basket (${totalCount} ${totalCount === 1 ? 'item' : 'items'})`}
               >
                 <ShoppingBag className="w-5 h-5" />
@@ -117,7 +131,7 @@ export const Header: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 text-jaggery hover:text-chilli focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli rounded-sm"
+                className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-jaggery hover:text-chilli focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli rounded-sm cursor-pointer"
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle navigation menu"
               >
@@ -133,21 +147,21 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-jaggery/10 bg-cream-light px-4 pt-4 pb-6 space-y-4 animate-in slide-in-from-top duration-200">
-            <nav className="flex flex-col space-y-3" aria-label="Mobile Navigation">
+          <div className="md:hidden border-t border-jaggery/10 bg-cream-light px-4 pt-4 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto animate-in slide-in-from-top duration-200">
+            <nav className="flex flex-col space-y-1" aria-label="Mobile Navigation">
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-sans font-semibold text-jaggery py-2 border-b border-jaggery/5"
+                className="min-h-[44px] flex items-center justify-between text-base font-sans font-semibold text-jaggery py-2.5 px-2 rounded hover:bg-cream-dark/40 border-b border-jaggery/5"
               >
                 <span>Home</span>
-                <span className="text-xs text-chilli font-kannada">ಮುಖಪುಟ</span>
+                <span className="text-xs text-chilli font-kannada font-medium">ಮುಖಪುಟ</span>
               </Link>
 
               <Link
                 href="/shop"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-sans font-medium text-jaggery/80 hover:text-chilli py-2 border-b border-jaggery/5 text-left"
+                className="min-h-[44px] flex items-center justify-between text-base font-sans font-medium text-jaggery/85 hover:text-chilli py-2.5 px-2 rounded hover:bg-cream-dark/40 border-b border-jaggery/5 text-left"
               >
                 <span>Shop All Thindi</span>
                 <span className="text-xs text-chilli font-kannada font-semibold">ತಿಂಡಿಗಳು</span>
@@ -156,7 +170,7 @@ export const Header: React.FC = () => {
               <Link
                 href="/combos"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-sans font-medium text-jaggery/80 hover:text-chilli py-2 border-b border-jaggery/5 text-left"
+                className="min-h-[44px] flex items-center justify-between text-base font-sans font-medium text-jaggery/85 hover:text-chilli py-2.5 px-2 rounded hover:bg-cream-dark/40 border-b border-jaggery/5 text-left"
               >
                 <span>THINDI Boxes</span>
                 <span className="text-xs text-chilli font-kannada font-semibold">ವಿಶೇಷ ಬಾಕ್ಸ್‌ಗಳು</span>
@@ -165,7 +179,7 @@ export const Header: React.FC = () => {
               <Link
                 href="/our-story"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-sans font-medium text-jaggery/80 hover:text-chilli py-2 border-b border-jaggery/5 text-left"
+                className="min-h-[44px] flex items-center justify-between text-base font-sans font-medium text-jaggery/85 hover:text-chilli py-2.5 px-2 rounded hover:bg-cream-dark/40 border-b border-jaggery/5 text-left"
               >
                 <span>Our Story</span>
                 <span className="text-xs text-jaggery-muted font-kannada">ನಮ್ಮ ಕಥೆ</span>
@@ -174,7 +188,7 @@ export const Header: React.FC = () => {
               <Link
                 href="/track-order"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-sans font-medium text-jaggery/80 hover:text-chilli py-2 border-b border-jaggery/5 text-left"
+                className="min-h-[44px] flex items-center justify-between text-base font-sans font-medium text-jaggery/85 hover:text-chilli py-2.5 px-2 rounded hover:bg-cream-dark/40 border-b border-jaggery/5 text-left"
               >
                 <span>Track Order</span>
                 <span className="text-xs text-chilli font-kannada font-semibold">ಆರ್ಡರ್ ಟ್ರ್ಯಾಕ್</span>
@@ -183,7 +197,7 @@ export const Header: React.FC = () => {
               <Link
                 href="/faq"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-sans font-medium text-jaggery/80 hover:text-chilli py-2 border-b border-jaggery/5 text-left"
+                className="min-h-[44px] flex items-center justify-between text-base font-sans font-medium text-jaggery/85 hover:text-chilli py-2.5 px-2 rounded hover:bg-cream-dark/40 border-b border-jaggery/5 text-left"
               >
                 <span>Customer FAQs</span>
                 <span className="text-xs text-jaggery-muted font-kannada">ಪ್ರಶ್ನೋತ್ತರ</span>
@@ -194,7 +208,7 @@ export const Header: React.FC = () => {
                   setMobileMenuOpen(false);
                   setSearchOpen(true);
                 }}
-                className="flex items-center justify-between text-base font-sans font-medium text-jaggery/80 hover:text-chilli py-2 border-b border-jaggery/5 text-left w-full cursor-pointer"
+                className="min-h-[44px] flex items-center justify-between text-base font-sans font-medium text-jaggery/85 hover:text-chilli py-2.5 px-2 rounded hover:bg-cream-dark/40 border-b border-jaggery/5 text-left w-full cursor-pointer"
               >
                 <span className="flex items-center gap-2">
                   <Search className="w-4 h-4 text-chilli" />

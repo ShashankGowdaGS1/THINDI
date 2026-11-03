@@ -46,7 +46,7 @@ export const CartDrawer: React.FC = () => {
       className="fixed inset-0 z-50 overflow-hidden bg-jaggery/45 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={closeCart}
     >
-      <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
+      <div className="fixed inset-y-0 right-0 flex max-w-full pl-0 sm:pl-10">
         <div
           className="w-screen max-w-md bg-cream-light border-l border-jaggery/15 shadow-2xl flex flex-col text-jaggery"
           onClick={(e) => e.stopPropagation()}
@@ -172,7 +172,7 @@ export const CartDrawer: React.FC = () => {
 
           {/* Footer & Checkout Notice */}
           {items.length > 0 && (
-            <div className="p-5 sm:p-6 border-t border-jaggery/10 bg-cream space-y-4">
+            <div className="p-5 sm:p-6 border-t border-jaggery/10 bg-cream space-y-4 pb-[max(1.25rem,calc(1.25rem+env(safe-area-inset-bottom,0px)))]">
               {/* Subtotal */}
               <div className="flex items-baseline justify-between">
                 <div>

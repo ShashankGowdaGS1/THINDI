@@ -39,8 +39,8 @@ export const PackSelector: React.FC<PackSelectorProps> = ({
               disabled={!isAvailable}
               onClick={() => onSelectVariant(v)}
               aria-pressed={isSelected}
-              className={`relative font-sans text-xs font-semibold rounded-sm transition-all duration-200 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli cursor-pointer ${
-                size === 'sm' ? 'px-2.5 py-1.5' : 'px-3 py-2'
+              className={`relative font-sans text-xs font-semibold rounded-sm transition-all duration-200 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli cursor-pointer inline-flex items-center justify-center ${
+                size === 'sm' ? 'px-2.5 py-1.5 min-h-[36px] min-w-[44px]' : 'px-3 py-2 min-h-[40px] min-w-[50px]'
               } ${
                 isSelected
                   ? 'bg-jaggery text-cream border border-jaggery shadow-sm'

@@ -141,7 +141,7 @@ export const ShopProductCard: React.FC<ShopProductCardProps> = ({
                 type="button"
                 onClick={() => onInspectDetails(product)}
                 aria-label={`Inspect recipe and ingredients for ${product.name}`}
-                className="px-2.5 py-1.5 rounded-sm border border-jaggery/20 text-xs font-sans font-medium text-jaggery hover:bg-cream transition-colors cursor-pointer"
+                className="px-2.5 py-1.5 rounded-sm border border-jaggery/20 text-xs font-sans font-medium text-jaggery hover:bg-cream transition-colors cursor-pointer min-h-[38px] flex items-center justify-center"
               >
                 Details
               </button>
@@ -152,7 +152,7 @@ export const ShopProductCard: React.FC<ShopProductCardProps> = ({
                 size="sm"
                 disabled={!isAvailable}
                 onClick={handleAddToCart}
-                className={`transition-all duration-200 ${
+                className={`transition-all duration-200 min-h-[38px] ${
                   added ? 'bg-leaf hover:bg-leaf' : ''
                 }`}
               >

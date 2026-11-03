@@ -252,7 +252,7 @@ export const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
       {showStickyBar && (
         <div
           aria-label="Quick mobile purchase"
-          className="sm:hidden fixed bottom-0 left-0 right-0 z-30 bg-cream/95 backdrop-blur-md border-t border-jaggery/15 px-4 py-2.5 shadow-2xl flex items-center justify-between gap-3 animate-in slide-in-from-bottom-2 duration-200"
+          className="sm:hidden fixed bottom-0 left-0 right-0 z-30 bg-cream/95 backdrop-blur-md border-t border-jaggery/15 px-4 pt-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom,0.625rem))] shadow-2xl flex items-center justify-between gap-3 animate-in slide-in-from-bottom-2 duration-200"
         >
           <div className="truncate max-w-[55%]">
             <span className="text-[10px] uppercase font-semibold text-jaggery/50 block truncate">
@@ -269,7 +269,7 @@ export const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
             size="sm"
             disabled={!isAvailable}
             onClick={handleAddToCart}
-            className={`transition-all duration-200 ${
+            className={`transition-all duration-200 min-h-[40px] px-4 shrink-0 ${
               added ? 'bg-leaf hover:bg-leaf' : ''
             }`}
           >

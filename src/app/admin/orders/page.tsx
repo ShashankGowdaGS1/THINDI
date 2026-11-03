@@ -115,8 +115,92 @@ export default function AdminOrdersPage() {
         </div>
       </div>
 
-      {/* Orders Table */}
-      <div className="overflow-x-auto rounded-xl border border-[#E6D9C8] bg-[#FFFCF7] shadow-xs">
+      {/* Mobile Orders Card View (< 768px) */}
+      <div className="md:hidden space-y-3">
+        {loading ? (
+          <div className="p-8 text-center text-[#78695C] bg-[#FFFCF7] rounded-xl border border-[#E6D9C8] text-xs">
+            Loading orders ledger...
+          </div>
+        ) : filteredOrders.length > 0 ? (
+          filteredOrders.map((order) => (
+            <div
+              key={order.id}
+              className="p-4 rounded-xl border border-[#E6D9C8] bg-[#FFFCF7] shadow-xs space-y-3"
+            >
+              <div className="flex items-center justify-between pb-2 border-b border-[#E6D9C8]/60 text-xs">
+                <div>
+                  <span className="font-mono font-bold text-[#2D241E] text-sm block">
+                    {order.orderReference}
+                  </span>
+                  <span className="text-[11px] text-[#8C7A6B]">
+                    {new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="font-mono font-bold text-[#2D241E] text-base block">
+                    {formatCurrency(order.pricing.finalAmountPaise)}
+                  </span>
+                  <span className="text-[11px] text-[#78695C]">
+                    {order.items.reduce((sum, item) => sum + item.quantity, 0)} pkts
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-start justify-between text-xs">
+                <div>
+                  <p className="font-semibold text-[#2D241E]">{order.customer.fullName}</p>
+                  <p className="text-[11px] text-[#78695C]">{order.shippingAddress.city}, {order.shippingAddress.pincode}</p>
+                </div>
+                <div className="flex flex-col items-end gap-1">
+                  <span
+                    className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold capitalize ${
+                      order.paymentStatus === 'captured'
+                        ? 'bg-[#365541]/10 text-[#365541]'
+                        : order.paymentStatus === 'refunded'
+                        ? 'bg-purple-50 text-purple-700'
+                        : order.paymentStatus === 'failed'
+                        ? 'bg-red-50 text-red-700'
+                        : 'bg-amber-50 text-amber-700'
+                    }`}
+                  >
+                    {order.paymentStatus}
+                  </span>
+                  <span
+                    className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold capitalize ${
+                      order.orderStatus === 'delivered'
+                        ? 'bg-[#365541]/10 text-[#365541]'
+                        : order.orderStatus === 'shipped'
+                        ? 'bg-blue-50 text-blue-700'
+                        : order.orderStatus === 'preparing'
+                        ? 'bg-amber-50 text-amber-700'
+                        : 'bg-[#F2EAE0] text-[#78695C]'
+                    }`}
+                  >
+                    {order.orderStatus}
+                  </span>
+                </div>
+              </div>
+
+              <div className="pt-2 border-t border-[#E6D9C8]/60 flex justify-end">
+                <Link
+                  href={`/admin/orders/${order.id}`}
+                  className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded bg-[#A43D2E] text-[#FAF6ED] font-semibold text-xs hover:bg-[#8E3224] transition-colors"
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>View Details</span>
+                </Link>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="p-8 text-center text-[#78695C] bg-[#FFFCF7] rounded-xl border border-[#E6D9C8] text-xs">
+            No orders match the selected filters.
+          </div>
+        )}
+      </div>
+
+      {/* Orders Desktop & Tablet Table (>= 768px) */}
+      <div className="hidden md:block overflow-x-auto rounded-xl border border-[#E6D9C8] bg-[#FFFCF7] shadow-xs">
         <table className="w-full text-left border-collapse text-xs">
           <thead>
             <tr className="border-b border-[#E6D9C8] bg-[#FAF5EC]/70 text-[#78695C] uppercase tracking-wider">
