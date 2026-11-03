@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'text';
@@ -41,13 +42,17 @@ export const Button: React.FC<ButtonProps> = ({
       'bg-transparent text-jaggery hover:text-chilli underline-offset-4 hover:underline p-0 focus-visible:ring-0',
   }[variant];
 
-  const fullClasses = `${baseStyles} ${sizeStyles} ${variantStyles} ${className}`.trim();
+  const fullClasses = twMerge(baseStyles, sizeStyles, variantStyles, className);
 
   const content = (
     <>
-      {icon && iconPosition === 'left' && <span className="inline-flex shrink-0">{icon}</span>}
-      <span>{children}</span>
-      {icon && iconPosition === 'right' && <span className="inline-flex shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">{icon}</span>}
+      {icon && iconPosition === 'left' && <span className="inline-flex shrink-0 text-current">{icon}</span>}
+      <span className="text-current">{children}</span>
+      {icon && iconPosition === 'right' && (
+        <span className="inline-flex shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 text-current">
+          {icon}
+        </span>
+      )}
     </>
   );
 

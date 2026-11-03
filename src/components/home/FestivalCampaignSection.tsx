@@ -97,19 +97,13 @@ export const FestivalCampaignSection: React.FC = () => {
             <div className="mb-8 space-y-2" role="tablist" aria-label="Seasonal Festival Variants">
               <div
                 className={`text-[10px] uppercase font-sans tracking-[0.2em] font-bold ${
-                  activeCampaign.id === 'deepavali' ? 'text-cream/60' : 'text-jaggery-muted'
+                  activeCampaign.id === 'deepavali' ? 'text-cream/90' : 'text-jaggery-muted'
                 }`}
               >
                 Explore Celebrations:
               </div>
 
-              <div
-                className={`border-y divide-y ${
-                  activeCampaign.id === 'deepavali'
-                    ? 'border-cream/20 divide-cream/15'
-                    : 'border-jaggery/20 divide-jaggery/10'
-                }`}
-              >
+              <div className="space-y-2">
                 {FESTIVAL_CAMPAIGNS.map((c) => {
                   const isSelected = c.id === activeCampaign.id;
 
@@ -122,36 +116,44 @@ export const FestivalCampaignSection: React.FC = () => {
                       aria-controls={`panel-festival-${c.id}`}
                       type="button"
                       onClick={() => setSelectedId(c.id)}
-                      className={`w-full py-3 px-2 flex items-center justify-between text-left transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 ${
+                      className={`w-full py-3 px-3.5 rounded-md flex items-center justify-between text-left transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 ${
                         activeCampaign.id === 'deepavali'
-                          ? 'focus-visible:ring-turmeric'
-                          : 'focus-visible:ring-chilli'
-                      } ${
-                        isSelected
-                          ? activeCampaign.id === 'deepavali'
-                            ? 'text-cream font-bold'
-                            : 'text-jaggery font-bold'
-                          : activeCampaign.id === 'deepavali'
-                          ? 'text-cream/50 hover:text-cream/80'
-                          : 'text-jaggery-muted hover:text-jaggery'
+                          ? isSelected
+                            ? 'bg-[#F7F0E3] text-[#2D241E] border-2 border-[#F7F0E3] shadow-md font-bold focus-visible:ring-turmeric'
+                            : 'bg-[#6B1D12] text-[#F7F0E3] border border-cream/20 hover:bg-[#58150B] hover:text-white font-medium focus-visible:ring-turmeric'
+                          : isSelected
+                          ? 'bg-[#2D241E] text-[#F7F0E3] border-2 border-[#2D241E] shadow-md font-bold focus-visible:ring-chilli'
+                          : 'bg-cream-dark/80 text-jaggery border border-jaggery/20 hover:bg-cream-deep font-medium focus-visible:ring-chilli'
                       }`}
                     >
                       <div className="flex items-baseline gap-3">
                         <span
                           className={`font-mono text-xs font-bold ${
-                            isSelected
-                              ? activeCampaign.id === 'deepavali'
-                                ? 'text-turmeric'
-                                : 'text-chilli'
-                              : 'opacity-50'
+                            activeCampaign.id === 'deepavali'
+                              ? isSelected
+                                ? 'text-chilli'
+                                : 'text-turmeric'
+                              : isSelected
+                              ? 'text-turmeric'
+                              : 'text-chilli'
                           }`}
                         >
                           {c.indexNumber}
                         </span>
-                        <span className="font-display text-lg tracking-tight">
+                        <span className="font-display text-base xl:text-lg tracking-tight">
                           {c.name}
                         </span>
-                        <span className="font-kannada text-xs opacity-75">
+                        <span
+                          className={`font-kannada text-xs ${
+                            activeCampaign.id === 'deepavali'
+                              ? isSelected
+                                ? 'text-[#2D241E]/80'
+                                : 'text-cream/90'
+                              : isSelected
+                              ? 'text-cream/90'
+                              : 'text-jaggery-muted'
+                          }`}
+                        >
                           {c.kannadaName}
                         </span>
                       </div>
@@ -159,15 +161,24 @@ export const FestivalCampaignSection: React.FC = () => {
                       <div className="flex items-center gap-2">
                         {isSelected ? (
                           <span
-                            className={`text-[10px] font-sans font-bold uppercase tracking-widest flex items-center gap-1 ${
-                              activeCampaign.id === 'deepavali' ? 'text-turmeric' : 'text-chilli'
+                            className={`text-[10px] font-sans font-bold uppercase tracking-wider flex items-center gap-1.5 px-2.5 py-1 rounded ${
+                              activeCampaign.id === 'deepavali'
+                                ? 'bg-cream-dark text-[#2D241E]'
+                                : 'bg-jaggery-dark text-turmeric'
                             }`}
                           >
+                            <Check className="w-3 h-3 text-current" aria-hidden="true" />
                             <span>Viewing</span>
-                            <span className="w-3 h-[1.5px] bg-current" />
                           </span>
                         ) : (
-                          <ArrowRight className="w-3.5 h-3.5 opacity-30 group-hover:opacity-70" />
+                          <ArrowRight
+                            className={`w-3.5 h-3.5 ${
+                              activeCampaign.id === 'deepavali'
+                                ? 'text-[#F7F0E3] opacity-80'
+                                : 'text-jaggery opacity-60'
+                            }`}
+                            aria-hidden="true"
+                          />
                         )}
                       </div>
                     </button>
@@ -182,11 +193,11 @@ export const FestivalCampaignSection: React.FC = () => {
                 variant={activeCampaign.id === 'deepavali' ? 'secondary' : 'primary'}
                 size="md"
                 href={activeCampaign.ctaLink}
-                icon={<ArrowRight className="w-4 h-4" />}
+                icon={<ArrowRight className="w-4 h-4 text-current" aria-hidden="true" />}
                 className={
                   activeCampaign.id === 'deepavali'
-                    ? 'bg-cream text-jaggery hover:bg-cream-dark shadow-md'
-                    : ''
+                    ? 'bg-[#2D241E] text-[#F7F0E3] hover:bg-[#365541] hover:text-white active:bg-[#253B2D] active:text-white font-semibold min-h-[48px] shadow-md focus-visible:ring-2 focus-visible:ring-turmeric focus-visible:ring-offset-2 focus-visible:ring-offset-[#2D241E]'
+                    : 'min-h-[48px] font-semibold'
                 }
               >
                 {activeCampaign.ctaText}
@@ -194,7 +205,7 @@ export const FestivalCampaignSection: React.FC = () => {
 
               <span
                 className={`text-xs font-sans tracking-wide ${
-                  activeCampaign.id === 'deepavali' ? 'text-cream/70' : 'text-jaggery-muted'
+                  activeCampaign.id === 'deepavali' ? 'text-cream/90' : 'text-jaggery-muted'
                 }`}
               >
                 {activeCampaign.statusText}
@@ -353,10 +364,10 @@ export const FestivalCampaignSection: React.FC = () => {
           </div>
 
           {/* 5. Mobile Campaign Selector */}
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             <span
               className={`text-[10px] uppercase font-sans tracking-widest font-bold ${
-                activeCampaign.id === 'deepavali' ? 'text-cream/60' : 'text-jaggery-muted'
+                activeCampaign.id === 'deepavali' ? 'text-cream/90' : 'text-jaggery-muted'
               }`}
             >
               Select Celebration:
@@ -371,19 +382,63 @@ export const FestivalCampaignSection: React.FC = () => {
                     key={c.id}
                     type="button"
                     role="tab"
+                    id={`mobile-tab-festival-${c.id}`}
                     aria-selected={isSelected}
+                    aria-controls={`mobile-panel-festival-${c.id}`}
                     onClick={() => setSelectedId(c.id)}
-                    className={`p-2.5 rounded text-left border transition-all cursor-pointer ${
-                      isSelected
-                        ? 'bg-cream text-jaggery border-cream font-bold shadow-sm'
-                        : activeCampaign.id === 'deepavali'
-                        ? 'bg-cream/10 text-cream/80 border-cream/20'
-                        : 'bg-cream-dark/60 text-jaggery/80 border-jaggery/20'
+                    className={`p-2.5 rounded-md text-left transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 ${
+                      activeCampaign.id === 'deepavali'
+                        ? isSelected
+                          ? 'bg-[#F7F0E3] text-[#2D241E] border-2 border-[#F7F0E3] font-bold shadow-sm focus-visible:ring-turmeric'
+                          : 'bg-[#6B1D12] text-[#F7F0E3] border border-cream/20 hover:bg-[#58150B] hover:text-white font-medium focus-visible:ring-turmeric'
+                        : isSelected
+                        ? 'bg-[#2D241E] text-[#F7F0E3] border-2 border-[#2D241E] font-bold shadow-sm focus-visible:ring-chilli'
+                        : 'bg-cream-dark/80 text-jaggery border border-jaggery/20 hover:bg-cream-deep font-medium focus-visible:ring-chilli'
                     }`}
                   >
-                    <div className="font-mono text-[10px] opacity-75">{c.indexNumber}</div>
-                    <div className="font-display font-bold text-xs truncate">{c.name}</div>
-                    <div className="font-kannada text-[11px] opacity-80">{c.kannadaName}</div>
+                    <div className="flex items-center justify-between mb-1">
+                      <span
+                        className={`font-mono text-[10px] font-bold ${
+                          activeCampaign.id === 'deepavali'
+                            ? isSelected
+                              ? 'text-chilli'
+                              : 'text-turmeric'
+                            : isSelected
+                            ? 'text-turmeric'
+                            : 'text-chilli'
+                        }`}
+                      >
+                        {c.indexNumber}
+                      </span>
+                      {isSelected ? (
+                        <span
+                          className={`inline-flex items-center gap-0.5 text-[9px] font-sans font-bold uppercase tracking-wider px-1 py-0.2 rounded ${
+                            activeCampaign.id === 'deepavali'
+                              ? 'bg-cream-dark text-[#2D241E]'
+                              : 'bg-jaggery-dark text-turmeric'
+                          }`}
+                        >
+                          <Check className="w-2.5 h-2.5 text-current" aria-hidden="true" />
+                          <span className="sr-only">Active</span>
+                        </span>
+                      ) : null}
+                    </div>
+                    <div className="font-display text-xs truncate">
+                      {c.name}
+                    </div>
+                    <div
+                      className={`font-kannada text-[11px] truncate ${
+                        activeCampaign.id === 'deepavali'
+                          ? isSelected
+                            ? 'text-[#2D241E]/80'
+                            : 'text-cream/90'
+                          : isSelected
+                          ? 'text-cream/90'
+                          : 'text-jaggery-muted'
+                      }`}
+                    >
+                      {c.kannadaName}
+                    </div>
                   </button>
                 );
               })}
@@ -396,9 +451,11 @@ export const FestivalCampaignSection: React.FC = () => {
               variant={activeCampaign.id === 'deepavali' ? 'secondary' : 'primary'}
               size="md"
               href={activeCampaign.ctaLink}
-              icon={<ArrowRight className="w-4 h-4" />}
-              className={`w-full justify-center ${
-                activeCampaign.id === 'deepavali' ? 'bg-cream text-jaggery shadow-md' : ''
+              icon={<ArrowRight className="w-4 h-4 text-current" aria-hidden="true" />}
+              className={`w-full justify-center min-h-[48px] font-semibold ${
+                activeCampaign.id === 'deepavali'
+                  ? 'bg-[#2D241E] text-[#F7F0E3] hover:bg-[#365541] hover:text-white active:bg-[#253B2D] active:text-white shadow-md focus-visible:ring-2 focus-visible:ring-turmeric focus-visible:ring-offset-2 focus-visible:ring-offset-[#2D241E]'
+                  : ''
               }`}
             >
               {activeCampaign.ctaText}
