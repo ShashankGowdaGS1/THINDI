@@ -6,7 +6,6 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../brand/Button';
-import { ChakkaliMotif } from '../brand/ChakkaliMotif';
 
 export const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -22,51 +21,51 @@ export const HeroSection: React.FC = () => {
       // Gentle, restrained entrance sequence
       gsap.from('.anim-eyebrow', {
         opacity: 0,
-        y: 10,
-        duration: 0.5,
+        y: 8,
+        duration: 0.45,
         ease: 'power2.out',
-        delay: 0.08,
+        delay: 0.05,
       });
 
       gsap.from('.anim-title-line', {
         opacity: 0,
-        y: 20,
-        duration: 0.75,
-        stagger: 0.1,
+        y: 16,
+        duration: 0.65,
+        stagger: 0.08,
         ease: 'power3.out',
-        delay: 0.15,
+        delay: 0.12,
       });
 
       gsap.from('.anim-kannada-detail', {
         opacity: 0,
-        y: 12,
-        duration: 0.6,
+        y: 10,
+        duration: 0.5,
         ease: 'power2.out',
-        delay: 0.35,
-      });
-
-      gsap.from('.anim-desc', {
-        opacity: 0,
-        y: 14,
-        duration: 0.65,
-        ease: 'power2.out',
-        delay: 0.45,
-      });
-
-      gsap.from('.anim-cta-group', {
-        opacity: 0,
-        y: 14,
-        duration: 0.55,
-        ease: 'power2.out',
-        delay: 0.55,
+        delay: 0.28,
       });
 
       gsap.from('.anim-hero-photo', {
         opacity: 0,
-        scale: 0.98,
-        duration: 0.9,
+        y: 16,
+        duration: 0.75,
         ease: 'power2.out',
-        delay: 0.25,
+        delay: 0.2,
+      });
+
+      gsap.from('.anim-desc', {
+        opacity: 0,
+        y: 12,
+        duration: 0.55,
+        ease: 'power2.out',
+        delay: 0.36,
+      });
+
+      gsap.from('.anim-cta-group', {
+        opacity: 0,
+        y: 12,
+        duration: 0.5,
+        ease: 'power2.out',
+        delay: 0.44,
       });
     }, heroRef);
 
@@ -76,60 +75,55 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative bg-cream overflow-hidden pt-4 pb-10 sm:pt-6 sm:pb-14 lg:pt-8 lg:pb-16 border-b border-jaggery/10"
-      aria-label="THINDI Homepage Hero"
+      className="relative bg-cream overflow-hidden pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 border-b border-jaggery/10"
+      aria-label="THINDI Homepage Hero — The Great Karnataka Crunch"
     >
       {/* Subtle background ambient warmth */}
       <div
-        className="absolute top-0 right-0 w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] rounded-full bg-turmeric/10 blur-3xl pointer-events-none -z-10"
+        className="absolute top-0 right-0 w-[55vw] h-[55vw] max-w-[800px] max-h-[800px] rounded-full bg-turmeric/10 blur-3xl pointer-events-none -z-10"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ========================================================
             DESKTOP HERO COMPOSITION (Screen widths >= 1024px)
-            Asymmetrical, editorial food campaign layout
+            Asymmetrical campaign layout: Left ~43%, Right ~57%
+            Food photography is the dominant, immersive hero.
             ======================================================== */}
-        <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-12 items-center">
-          {/* Left Portion: Editorial Typography & Brand Narrative (7 columns) */}
-          <div className="lg:col-span-7 xl:col-span-7 z-10 pr-2 xl:pr-6">
+        <div className="hidden lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14 items-center">
+          {/* Left Portion: Editorial Typography & Brand Narrative (5 columns ~ 42-45%) */}
+          <div className="lg:col-span-5 z-10 pr-2 xl:pr-4 flex flex-col justify-center">
             {/* Eyebrow */}
-            <div className="anim-eyebrow flex items-center gap-3 mb-4 xl:mb-5">
-              <span className="w-7 h-[2px] bg-chilli shrink-0" />
-              <span className="font-sans text-xs xl:text-sm font-bold tracking-[0.22em] uppercase text-jaggery-muted">
+            <div className="anim-eyebrow flex items-center gap-2.5 mb-4 xl:mb-5">
+              <span className="w-6 h-[2px] bg-chilli shrink-0" />
+              <span className="font-sans text-xs xl:text-sm font-bold tracking-[0.24em] uppercase text-jaggery-muted">
                 FROM HASSAN, WITH LOVE
-              </span>
-              <span className="text-xs font-kannada font-semibold text-chilli">
-                · ಹಾಸನದ ಕೈರುಚಿ
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-display font-extrabold text-5xl xl:text-[72px] leading-[1.03] tracking-[-0.035em] text-jaggery mb-4 xl:mb-5">
+            <h1 className="font-display font-extrabold text-4xl xl:text-5xl 2xl:text-[64px] leading-[1.04] tracking-[-0.035em] text-jaggery mb-4 xl:mb-5">
               <span className="anim-title-line block">A little crunch.</span>
               <span className="anim-title-line block text-chilli">
                 A lot of Karnataka.
               </span>
             </h1>
 
-            {/* Kannada Heritage Detail */}
-            <div className="anim-kannada-detail flex items-center gap-3 mb-4 xl:mb-5">
-              <span className="inline-block px-3 py-1 bg-cream-dark/90 border border-jaggery/15 rounded-sm font-kannada text-base font-semibold text-jaggery tracking-wide">
+            {/* One small, purposeful Kannada accent */}
+            <div className="anim-kannada-detail mb-5">
+              <span className="inline-block px-3 py-1 bg-cream-dark/80 border border-jaggery/15 rounded-sm font-kannada text-sm xl:text-base font-semibold text-jaggery tracking-wide shadow-2xs">
                 ಮನೆಯ ರುಚಿ. ನಮ್ಮ ತಿಂಡಿ.
-              </span>
-              <span className="text-xs font-sans text-jaggery-muted tracking-wide italic">
-                (The authentic taste of home)
               </span>
             </div>
 
             {/* Supporting Copy */}
-            <p className="anim-desc font-sans text-base xl:text-lg text-jaggery-muted leading-relaxed max-w-xl mb-6 xl:mb-7 text-pretty">
-              Chakkali, kodubale, nippattu, obbattu and more. The flavours we grew up
+            <p className="anim-desc font-sans text-base xl:text-lg text-jaggery-muted leading-relaxed max-w-lg mb-7 text-pretty">
+              Chakkali, kodubale, nippattu and more. The flavours we grew up
               loving, brought together under one roof.
             </p>
 
             {/* Call-to-Action Group */}
-            <div className="anim-cta-group flex flex-wrap items-center gap-5">
+            <div className="anim-cta-group flex items-center gap-5">
               <Button
                 variant="primary"
                 size="lg"
@@ -146,58 +140,28 @@ export const HeroSection: React.FC = () => {
               >
                 Our Story
               </Link>
-
-              {/* Restrained Chakkali geometric vector detail */}
-              <div
-                className="ml-auto hidden xl:flex items-center gap-2.5 pl-4 border-l border-jaggery/15 text-jaggery/70"
-                title="Authentic hand-pressed spiral chakkali"
-              >
-                <ChakkaliMotif size={38} color="#2D241E" accentColor="#A43D2E" />
-                <span className="text-[11px] font-sans font-medium uppercase tracking-wider text-jaggery-muted leading-tight">
-                  Regional<br />Heritage
-                </span>
-              </div>
             </div>
           </div>
 
-          {/* Right Portion: Art-directed Editorial Photography (5 columns) */}
-          <div className="lg:col-span-5 xl:col-span-5 relative">
-            <div className="anim-hero-photo relative">
-              {/* Main Food Photograph Container with refined studio framing */}
-              <div className="relative rounded-lg overflow-hidden border border-jaggery/15 bg-cream-dark shadow-[0_20px_45px_-12px_rgba(45,36,30,0.18)]">
+          {/* Right Portion: Immersive Editorial Food Campaign Photography (7 columns ~ 55-58%) */}
+          <div className="lg:col-span-7 relative">
+            <div className="anim-hero-photo relative w-full">
+              {/* Large, food-dominant campaign visual */}
+              <div className="relative aspect-[16/11] xl:aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-[0_24px_60px_-15px_rgba(45,36,30,0.18)] bg-cream-dark">
                 <Image
                   src="/images/hero-desktop.jpg"
-                  alt="Authentic Karnataka traditional snacks — golden crispy spiral chakkali, ring kodubale, and nippattu arranged in brass and terracotta vessels on fresh banana leaf"
-                  width={800}
-                  height={600}
+                  alt="The Great Karnataka Crunch — authentic golden crispy spiral chakkali in a terracotta bowl with ring kodubale and spiced nippattu crackers on fresh banana leaf in warm natural morning light"
+                  fill
                   priority
-                  className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-[1.02]"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="object-cover object-center transform transition-transform duration-700 ease-out hover:scale-[1.015]"
                 />
 
-                {/* Refined Photographic Caption Strip */}
-                <div className="bg-cream-light/95 border-t border-jaggery/10 px-4 py-2.5 flex items-center justify-between text-xs font-sans text-jaggery">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-chilli" />
-                    <span className="font-semibold text-jaggery tracking-wide">
-                      Chakkali · Kodubale · Nippattu
-                    </span>
-                  </div>
-                  <span className="font-kannada text-xs font-medium text-jaggery-muted">
-                    ಗರಿಗರಿ ತಿಂಡಿಗಳು
-                  </span>
-                </div>
-              </div>
-
-              {/* Simplified subtle origin label */}
-              <div className="absolute -bottom-3 -left-4 bg-cream/95 backdrop-blur-sm border border-jaggery/20 rounded px-3 py-1.5 shadow-md flex items-center gap-2 z-20">
-                <span className="w-2 h-2 rounded-full bg-leaf" />
-                <span className="text-xs font-sans font-semibold text-jaggery">
-                  Hassan, Karnataka
-                </span>
-                <span className="text-[11px] font-kannada text-jaggery-muted font-medium">
-                  · ಹಾಸನ
-                </span>
+                {/* Subtle natural warmth vignette */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-tr from-jaggery/10 via-transparent to-transparent pointer-events-none"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </div>
@@ -205,85 +169,70 @@ export const HeroSection: React.FC = () => {
 
         {/* ========================================================
             MOBILE HERO COMPOSITION (Screen widths < 1024px)
-            Thoughtfully composed for mobile reading rhythms:
-            Eyebrow -> Headline -> Hero Photograph -> Kannada Accent -> Copy -> CTA
+            1. Compact Eyebrow
+            2. Large Main Headline
+            3. Purposeful Kannada Accent
+            4. Prominent Close-up Food Photograph (No distracting captions)
+            5. Brief Supporting Copy
+            6. Primary Shopping CTA + Secondary Story Link
             ======================================================== */}
-        <div className="lg:hidden flex flex-col">
+        <div className="lg:hidden flex flex-col space-y-4">
           {/* 1. Mobile Eyebrow */}
-          <div className="anim-eyebrow flex items-center gap-2 mb-2.5">
+          <div className="anim-eyebrow flex items-center gap-2">
             <span className="w-5 h-[1.5px] bg-chilli shrink-0" />
             <span className="font-sans text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-jaggery-muted">
               FROM HASSAN, WITH LOVE
             </span>
-            <span className="text-[11px] font-kannada font-semibold text-chilli">
-              · ಹಾಸನ
-            </span>
           </div>
 
-          {/* 2. Mobile Compact Headline */}
-          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-[1.08] tracking-[-0.03em] text-jaggery mb-3">
+          {/* 2. Mobile Headline */}
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-[1.08] tracking-[-0.03em] text-jaggery">
             <span className="block">A little crunch.</span>
             <span className="block text-chilli">A lot of Karnataka.</span>
           </h1>
 
-          {/* 3. Mobile Hero Photography (Portrait / Vertical balanced framing) */}
-          <div className="anim-hero-photo relative my-2">
-            <div className="relative rounded-lg overflow-hidden border border-jaggery/15 bg-cream-dark shadow-[0_14px_28px_-8px_rgba(45,36,30,0.16)]">
-              <Image
-                src="/images/hero-mobile.jpg"
-                alt="Traditional Karnataka snacks: handmade chakkali, kodubale and nippattu in rustic terracotta vessels on fresh banana leaf"
-                width={600}
-                height={800}
-                priority
-                className="w-full h-auto max-h-[360px] sm:max-h-[440px] object-cover"
-                sizes="100vw"
-              />
-
-              {/* Mobile Photo Overlay Detail */}
-              <div className="bg-cream-light/95 border-t border-jaggery/10 px-3 py-2 flex items-center justify-between text-[11px] font-sans text-jaggery">
-                <span className="font-medium">
-                  Chakkali · Kodubale · Nippattu
-                </span>
-                <span className="font-kannada text-chilli font-semibold">
-                  ಗರಿಗರಿ ತಿಂಡಿಗಳು
-                </span>
-              </div>
-            </div>
-
-            {/* Small circular chakkali emblem on mobile */}
-            <div className="absolute top-3 right-3 bg-cream/90 backdrop-blur-sm p-1.5 rounded-full border border-jaggery/15 shadow-sm">
-              <ChakkaliMotif size={24} color="#2D241E" accentColor="#A43D2E" />
-            </div>
-          </div>
-
-          {/* 4. Mobile Kannada Accent Detail */}
-          <div className="anim-kannada-detail mt-3 mb-2.5">
-            <span className="inline-block px-3 py-1 bg-cream-dark/90 border border-jaggery/15 rounded-sm font-kannada text-sm font-semibold text-jaggery">
+          {/* 3. Mobile Purposeful Kannada Accent */}
+          <div className="anim-kannada-detail">
+            <span className="inline-block px-3 py-1 bg-cream-dark/80 border border-jaggery/15 rounded-sm font-kannada text-xs sm:text-sm font-semibold text-jaggery">
               ಮನೆಯ ರುಚಿ. ನಮ್ಮ ತಿಂಡಿ.
             </span>
           </div>
 
+          {/* 4. Prominent Close-up Food Photograph */}
+          <div className="anim-hero-photo relative pt-1 pb-2">
+            <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full rounded-xl overflow-hidden shadow-[0_16px_36px_-10px_rgba(45,36,30,0.18)] bg-cream-dark">
+              <Image
+                src="/images/hero-mobile.jpg"
+                alt="Close-up of golden handmade chakkali, kodubale and nippattu crackers on terracotta platter with banana leaf in warm natural light"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+
           {/* 5. Mobile Supporting Copy */}
-          <p className="anim-desc font-sans text-sm sm:text-base text-jaggery-muted leading-relaxed mb-5">
-            Chakkali, kodubale, nippattu, obbattu and more. The flavours we grew up
+          <p className="anim-desc font-sans text-sm sm:text-base text-jaggery-muted leading-relaxed text-pretty">
+            Chakkali, kodubale, nippattu and more. The flavours we grew up
             loving, brought together under one roof.
           </p>
 
           {/* 6. Mobile Action Buttons */}
-          <div className="anim-cta-group flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="anim-cta-group flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
             <Button
               variant="primary"
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
               href="/shop"
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto justify-center min-h-[48px]"
             >
               Explore Thindi
             </Button>
 
             <Link
               href="/our-story"
-              className="text-center font-sans text-sm font-medium text-jaggery py-2 hover:text-chilli underline underline-offset-4 decoration-jaggery/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli rounded"
+              className="text-center font-sans text-sm font-medium text-jaggery py-2.5 hover:text-chilli underline underline-offset-4 decoration-jaggery/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli rounded min-h-[44px] flex items-center justify-center"
             >
               Our Story
             </Link>
