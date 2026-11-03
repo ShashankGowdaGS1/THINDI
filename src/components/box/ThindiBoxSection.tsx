@@ -215,14 +215,15 @@ export const ThindiBoxSection: React.FC = () => {
               <div className="relative">
                 {/* Main Box Showcase Container: Kraft/Cream Box Art Direction */}
                 <div className="relative rounded-lg overflow-hidden border-2 border-jaggery/25 bg-cream shadow-[0_24px_50px_-10px_rgba(45,36,30,0.22)] group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream-dark">
+                  <div className="relative aspect-[4/3] xl:aspect-[16/11] w-full overflow-hidden bg-cream-dark">
                     <Image
+                      key={selectedBundle.id}
                       src={selectedBundle.imageSrc}
                       alt={selectedBundle.imageAlt}
                       fill
                       priority
-                      sizes="(max-width: 1280px) 50vw, 600px"
-                      className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      sizes="(max-width: 1280px) 50vw, 650px"
+                      className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-[1.02] animate-in fade-in duration-300"
                     />
 
                     {/* Conceptual Gifting Mockup Badge */}
@@ -255,21 +256,6 @@ export const ThindiBoxSection: React.FC = () => {
                       <span>Inspect Items</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
-                  </div>
-                </div>
-
-                {/* Decorative floating kraft packaging pill */}
-                <div className="absolute -bottom-4 -left-4 bg-cream border border-jaggery/25 rounded-md px-3.5 py-2 shadow-lg flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-turmeric/30 flex items-center justify-center text-chilli font-bold">
-                    <Package className="w-3.5 h-3.5" />
-                  </div>
-                  <div>
-                    <div className="text-[9px] uppercase tracking-wider font-sans font-bold text-jaggery-muted">
-                      Packaging Structure
-                    </div>
-                    <div className="text-xs font-sans font-bold text-jaggery">
-                      Divided Kraft Carton · Sealed Pouches
-                    </div>
                   </div>
                 </div>
               </div>
@@ -310,11 +296,12 @@ export const ThindiBoxSection: React.FC = () => {
             <div className="relative rounded-lg overflow-hidden border border-jaggery/25 bg-cream shadow-md">
               <div className="relative aspect-[4/3] w-full">
                 <Image
+                  key={selectedBundle.id}
                   src={selectedBundle.imageSrc}
                   alt={selectedBundle.imageAlt}
                   fill
                   sizes="100vw"
-                  className="object-cover"
+                  className="object-cover animate-in fade-in duration-300"
                 />
                 <div className="absolute top-3 left-3 bg-jaggery/90 text-cream px-2.5 py-0.5 rounded text-[10px] uppercase font-sans font-bold tracking-wider">
                   Concept Gifting Box

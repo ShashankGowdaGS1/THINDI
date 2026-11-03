@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ThindiWordmarkProps {
   className?: string;
@@ -12,68 +13,40 @@ interface ThindiWordmarkProps {
 export const ThindiWordmark: React.FC<ThindiWordmarkProps> = ({
   className = '',
   size = 'md',
-  showOrigin = true,
   asLink = true,
   theme = 'light',
 }) => {
-  const sizeClasses = {
-    sm: {
-      en: 'text-xl tracking-tight font-extrabold',
-      kn: 'text-sm font-semibold ml-1.5',
-      origin: 'text-[9px] tracking-widest',
-      gap: 'gap-0.5',
-    },
-    md: {
-      en: 'text-2xl sm:text-3xl tracking-tight font-extrabold',
-      kn: 'text-base sm:text-lg font-semibold ml-2',
-      origin: 'text-[10px] tracking-[0.2em]',
-      gap: 'gap-0.5',
-    },
-    lg: {
-      en: 'text-4xl sm:text-5xl tracking-tight font-black',
-      kn: 'text-xl sm:text-2xl font-bold ml-2.5',
-      origin: 'text-xs tracking-[0.25em]',
-      gap: 'gap-1',
-    },
+  const heightClasses = {
+    sm: 'h-8 sm:h-9 w-auto',
+    md: 'h-10 sm:h-12 lg:h-14 w-auto',
+    lg: 'h-12 sm:h-16 lg:h-18 w-auto',
   }[size];
+
+  const logoSrc = theme === 'dark' ? '/images/logo-dark.png' : '/images/logo.png';
 
   const content = (
     <div
-      className={`inline-flex flex-col select-none group transition-opacity hover:opacity-90 ${sizeClasses.gap} ${className}`}
-      aria-label="THINDI — ತಿಂಡಿ, Traditional Karnataka Foods from Hassan"
+      className={`inline-flex items-center select-none group transition-opacity hover:opacity-90 ${className}`}
+      aria-label="THINDI — ತಿಂಡಿ, Authentic Karnataka Traditional Foods from Hassan"
     >
-      <div className="flex items-baseline leading-none">
-        <span
-          className={`font-display font-black tracking-[-0.03em] ${
-            theme === 'dark' ? 'text-cream' : 'text-jaggery'
-          } ${sizeClasses.en}`}
-        >
-          THINDI
-        </span>
-        <span
-          className={`font-kannada opacity-95 transition-transform duration-300 group-hover:scale-105 ${
-            theme === 'dark' ? 'text-turmeric' : 'text-chilli'
-          } ${sizeClasses.kn}`}
-          aria-hidden="true"
-        >
-          ತಿಂಡಿ
-        </span>
-      </div>
-      {showOrigin && (
-        <span
-          className={`font-sans font-medium uppercase ${
-            theme === 'dark' ? 'text-cream/60' : 'text-jaggery-muted/75'
-          } ${sizeClasses.origin}`}
-        >
-          Hassan · Karnataka
-        </span>
-      )}
+      {/* Official Brand Logo */}
+      <Image
+        src={logoSrc}
+        alt="THINDI — ತಿಂಡಿ | Hassan, Karnataka"
+        width={912}
+        height={289}
+        priority
+        className={`object-contain transition-transform duration-200 group-hover:scale-[1.02] ${heightClasses}`}
+      />
     </div>
   );
 
   if (asLink) {
     return (
-      <Link href="/" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli rounded-sm">
+      <Link
+        href="/"
+        className="inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-chilli rounded-sm"
+      >
         {content}
       </Link>
     );
